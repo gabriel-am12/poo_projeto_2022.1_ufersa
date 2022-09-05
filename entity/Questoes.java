@@ -15,13 +15,13 @@ public class Questoes{
 	
 	//---------------------------------------------------------------------------------------------------------------//
 	
-	//Criação de um array dinamico, com a finalidade de comportar as questões
+	//Criaï¿½ï¿½o de um array dinamico, com a finalidade de comportar as questï¿½es
 	
 	ArrayList<Questoes> listaDeQuestoes = new ArrayList<>();
 	
 	//---------------------------------------------------------------------------------------------------------------//
 	
-	//Criação do construtor de Questoes
+	//Criaï¿½ï¿½o do construtor de Questoes
 	
 	public Questoes(int codigo, int tipo, String enunciado, String gabarito, Disciplina disciplina, String assunto,String dificuldade) {
 		setCodigo(codigo);
@@ -94,7 +94,7 @@ public class Questoes{
 	
 	//---------------------------------------------------------------------------------------------------------------//
 	
-	//Criando os métodos necessarios para realizar todas as funções (cadastrar, editar , excluir e buscar)
+	//Criando os mï¿½todos necessarios para realizar todas as funï¿½ï¿½es (cadastrar, editar , excluir e buscar)
 	
 	public void cadastrarQuestao(int codigo, int tipo, String enunciado, String gabarito, Disciplina disciplina, String assunto,String dificuldade){
 		Questoes questoes;
@@ -102,15 +102,15 @@ public class Questoes{
 		listaDeQuestoes.add(questoes);
 	} 
 	
-	//Função extra caso seja necessario mostrar todas as questões
+	//Funï¿½ï¿½o extra caso seja necessario mostrar todas as questï¿½es
 	public void listar() {
 		System.out.println("Questao de codigo " + this.codigo + " referente a disciplina " + this.disciplina + " sobre " + this.assunto + " do tipo " + this.tipo + " de dificuldade " + this.dificuldade);
-		System.out.println("Enunciado da questão: " + this.enunciado);
-		System.out.println("Gabarito da questão: " + this.gabarito);
+		System.out.println("Enunciado da questï¿½o: " + this.enunciado);
+		System.out.println("Gabarito da questï¿½o: " + this.gabarito);
 	}
 	
 	public void listarQuestao() {
-		System.out.println("Listando todas as questões armazenadas: ");
+		System.out.println("Listando todas as questï¿½es armazenadas: ");
 		for (Questoes questoeslista: listaDeQuestoes) {
 			questoeslista.listar();
 		}
@@ -120,8 +120,8 @@ public class Questoes{
 		for(Questoes questoes : listaDeQuestoes) {
 			if(questoes.assunto == assunto) {
 				System.out.println("Questao de codigo " + this.codigo + " referente a disciplina " + this.disciplina + " sobre " + this.assunto + " do tipo " + this.tipo + " de dificuldade " + this.dificuldade);
-				System.out.println("Enunciado da questão: " + this.enunciado);
-				System.out.println("Gabarito da questão: " + this.gabarito);
+				System.out.println("Enunciado da questï¿½o: " + this.enunciado);
+				System.out.println("Gabarito da questï¿½o: " + this.gabarito);
 			}
 		}
 	}
@@ -130,8 +130,8 @@ public class Questoes{
 		for(Questoes questoes : listaDeQuestoes) {
 			if(questoes.disciplina == disciplina) {
 				System.out.println("Questao de codigo " + this.codigo + " referente a disciplina " + this.disciplina + " sobre " + this.assunto + " do tipo " + this.tipo + " de dificuldade " + this.dificuldade);
-				System.out.println("Enunciado da questão: " + this.enunciado);
-				System.out.println("Gabarito da questão: " + this.gabarito);
+				System.out.println("Enunciado da questï¿½o: " + this.enunciado);
+				System.out.println("Gabarito da questï¿½o: " + this.gabarito);
 			}
 		}
 	}
@@ -140,8 +140,8 @@ public class Questoes{
 		for(Questoes questoes : listaDeQuestoes) {
 			if(questoes.dificuldade == dificuldade) {
 				System.out.println("Questao de codigo " + this.codigo + " referente a disciplina " + this.disciplina + " sobre " + this.assunto + " do tipo " + this.tipo + " de dificuldade " + this.dificuldade);
-				System.out.println("Enunciado da questão: " + this.enunciado);
-				System.out.println("Gabarito da questão: " + this.gabarito);
+				System.out.println("Enunciado da questï¿½o: " + this.enunciado);
+				System.out.println("Gabarito da questï¿½o: " + this.gabarito);
 			}
 		}
 	}
