@@ -52,47 +52,73 @@ public class Questoes{
 		return codigo;
 	}
 	public void setCodigo(int codigo) {
-		if(codigo < 0)
+		if(codigo < 0){
 			Math.abs(codigo);
 		this.codigo = codigo;
-		
+		}else{
 		this.codigo = codigo;
+		}
 	}
 	public int getTipo() {
 		return tipo;
 	}
 	public void setTipo(int tipo) {
+		if(tipo < 0){
+			Math.abs(tipo);
 		this.tipo = tipo;
+		}else{
+			this.tipo = tipo;
+		}
 	}
 	public String getEnunciado() {
 		return enunciado;
 	}
 	public void setEnunciado(String enunciado) {
-		this.enunciado = enunciado;
+		if (enunciado == null || enunciado.isEmpty()){
+			System.out.println("Dados não validados");
+		}else{
+			this.enunciado = enunciado;
+		}
 	}
 	public String getGabarito() {
 		return gabarito;
 	}
 	public void setGabarito(String gabarito) {
-		this.gabarito = gabarito;
+		if (gabarito == null || gabarito.isEmpty()){
+			System.out.println("Dados não validados");
+		}else{
+			this.gabarito = gabarito;
+		}
 	}
 	public Disciplina getDisciplina() {
 		return disciplina;
 	}
 	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
+		if(disciplina == null){
+			System.out.println("Dados não validados");
+		}else{
+			this.disciplina = disciplina;
+		}
 	}
 	public String getAssunto() {
 		return assunto;
 	}
 	public void setAssunto(String assunto) {
-		this.assunto = assunto;
+		if (assunto == null || assunto.isEmpty()){
+			System.out.println("Dados não validados");
+		}else{
+			this.assunto = assunto;
+		}
 	}
 	public String getDificuldade() {
 		return dificuldade;
 	}
 	public void setDificuldade(String dificuldade) {
-		this.dificuldade = dificuldade;
+		if (dificuldade == null || dificuldade.isEmpty()){
+			System.out.println("Dados não validados");
+		}else{
+			this.dificuldade = dificuldade;
+		}
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------//
