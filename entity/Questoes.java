@@ -1,7 +1,6 @@
 package entity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Questoes{
 	//Atributos da classe "Questoes"
@@ -22,6 +21,10 @@ public class Questoes{
 	//---------------------------------------------------------------------------------------------------------------//
 	
 	//Cria��o do construtor de Questoes
+	
+	public Questoes(){
+
+	}
 	
 	public Questoes(int codigo, int tipo, String enunciado, String gabarito, Disciplina disciplina, String assunto,String dificuldade) {
 		setCodigo(codigo);
