@@ -1,10 +1,11 @@
+// package model.entity descomentar depois de criar a pasta model
 package entity;
 import java.util.ArrayList;
 
 public class Disciplina {
-  private String nome;
   private int codigo;
-  private String assunto;
+  private String nome;
+  private String[] assunto;
   ArrayList<Disciplina> listaDeDisciplinas = new ArrayList<Disciplina>();
 
   //set de nome
@@ -50,6 +51,10 @@ public class Disciplina {
     setAssunto(assunto);
     getAssunto();
   }
+
+
+  // METODOS SERAO TRANSFERIDOS PARA DisciplinaBO
+
 
   // metodo para cadastrar uma disciplina
   public void cadastrarDisciplina(String nome, int codigo, String assunto) {
