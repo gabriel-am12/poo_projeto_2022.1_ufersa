@@ -63,4 +63,20 @@ public class DisciplinaBO {
             return false;
         }
     }
+
+    public boolean remover (Disciplina disciplina) {
+        ResultSet rs = dao.findBySpecifiedField(disciplina, "codigo");
+        try {
+            if(rs !=null && rs.next()) {
+                if(dao.deletar(aluno) == true)
+                    return true;
+                    else return false;
+            }
+            else return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }
