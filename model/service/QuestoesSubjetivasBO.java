@@ -10,7 +10,7 @@ import br.edu.ufersa.sistemageradordeprova.model.dao.BaseInterDAO;
 import br.edu.ufersa.sistemageradordeprova.model.entities.QuestoesSubjetivas;
 
 public class QuestoesSubjetivasBO {
-	BaseInterDAO<QuestoesSubjetivas> dao = new QuestoesSubjetivasBO();
+	BaseInterDAO<QuestoesSubjetivas> dao = new QuestoesSubjetivasDao();
 	public boolean adicionar(QuestoesSubjetivas quest) {
 		ResultSet rs = dao.findBySpecifiedField(quest, "id_pk");
 		try {
