@@ -9,13 +9,15 @@ import br.edu.ufersa.sistemageradordeprova.model.entities.QuestoesSubjetivas;
 
 public class QuestoesSubjetivasDao extends BaseDao<QuestoesSubjetivas>{
 	public boolean inserir (QuestoesSubjetivas quest) {
-		String sql = "INSERT INTO tb_questaoobj  (enunciado,assuntos,dificuldade,resposta) VALUES (?,?,?,?);";
+		String sql = "INSERT INTO tb_questaosub (enunciado,tipo,assuntos,dificuldade,pk_disciplina,resposta) VALUES (?,?,?,?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, quest.getEnunciado());
-			pst.setString(2, quest.getAssunto());
-			pst.setString(3, quest.getDificuldade());
-			pst.setString(9, quest.getResposta());
+			pst.setInt(2, quest.getTipo());
+			pst.setString(3, quest.getAssunto());
+			pst.setString(4, quest.getDificuldade());
+			pst.setObject(5, quest.getDisciplina());
+			pst.setString(6, quest.getResposta());
 			pst.execute();
 			return true;		
 		
@@ -50,7 +52,7 @@ public class QuestoesSubjetivasDao extends BaseDao<QuestoesSubjetivas>{
 			pst.setString(1, quest.getEnunciado());
 			pst.setString(2, quest.getAssunto() );
 			pst.setString(3, quest.getDificuldade());
-			pst.setString(9, quest.getResposta());
+			pst.setString(4, quest.getResposta());
 			pst.executeUpdate();
 			return true;		
 		
@@ -64,7 +66,7 @@ public class QuestoesSubjetivasDao extends BaseDao<QuestoesSubjetivas>{
 	
 
 	public QuestoesSubjetivas findById(QuestoesSubjetivas e) {
-		String sql = "SELECT * FROM tb_aluno WHERE id_pk=? ;";
+		String sql = "SELECT * FROM tb_questaosub WHERE id_pk=? ;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setInt(1, e.getCodigo());
@@ -72,10 +74,10 @@ public class QuestoesSubjetivasDao extends BaseDao<QuestoesSubjetivas>{
 			if(rs.next()) {
 				QuestoesSubjetivas a = new QuestoesSubjetivas();
 				a.setEnunciado(rs.getString("enunciado"));
+				a.setTipo(rs.getInt("tipo"));
 				a.setAssunto(rs.getString("assuntos"));
 				a.setDificuldade(rs.getString("dificuldade"));
 				a.setResposta(rs.getString("resposta"));
-				//a.setDisciplina(rs.getString("fk_disciplina"));
 				
 				a.setCodigo(e.getCodigo());
 				return a;
@@ -117,9 +119,11 @@ public class QuestoesSubjetivasDao extends BaseDao<QuestoesSubjetivas>{
 			case "dificuldade":
 				pst.setString(1, e.getDificuldade());
 				break;
+				
 			case "resposta":
 				pst.setString(1, e.getResposta());
 				break;
+				
 			default: 
 				pst.setInt(1, e.getCodigo());
 			}
@@ -153,7 +157,6 @@ public class QuestoesSubjetivasDao extends BaseDao<QuestoesSubjetivas>{
 		
 	}
 	
-	//buscar uma questão subjetiva
 	public ResultSet buscar() {
 		String sql = "SELECT * FROM tb_questaosub;";
 		try {
