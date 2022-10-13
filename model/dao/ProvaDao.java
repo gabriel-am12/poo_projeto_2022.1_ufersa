@@ -29,7 +29,7 @@ public class ProvaDao extends BaseDao<Prova>{
 		String sql = "DELETE FROM tb_prova WHERE id=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setString(1, provaa.getId());
+			pst.setInt(1, provaa.getId());
 			pst.execute();
 			
 			return true;
@@ -68,10 +68,10 @@ public class ProvaDao extends BaseDao<Prova>{
 			ResultSet rs = pst.executeQuery();
 			if(rs.next()) {
 				Prova provinhaaa = new Prova();
-				provinhaaa.setId(rs.getString("id"));
-				provinhaaa.setquestao(rs.getString("questao"));
+				provinhaaa.setId(rs.getInt("id"));
+				provinhaaa.setQuestao(rs.getString("questao"));
 				provinhaaa.setDisciplina(rs.getString("disciplina"));
-				provinhaaa.setData(rs.getString("data"));
+				provinhaaa.setData(rs.getLocalDate("data"));
 				provinhaaa.setId(provinhaa.getId());
 				return provinhaaa;
 			}
