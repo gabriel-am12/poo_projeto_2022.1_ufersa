@@ -10,10 +10,11 @@ import br.edu.ufersa.sistemageradordeprova.model.dao.QuestoesObjetivasDao;
 import br.edu.ufersa.sistemageradordeprova.model.dao.BaseInterDAO;
 import br.edu.ufersa.sistemageradordeprova.model.entities.QuestoesObjetivas;
 
+
 public class QuestoesObjetivasBO {
-	BaseInterDAO<QuestoesObjetivas> dao =  new QuestoesObjetivas();
+	BaseInterDAO<QuestoesObjetivas> dao =  new QuestoesObjetivasDao();
 	public boolean adicionar(QuestoesObjetivas quest) {
-		ResultSet rs = dao.findBySpecifiedField(quest, "codigo");
+		ResultSet rs = dao.findBySpecifiedField(quest, "id_pk");
 		try {
 			if(rs==null || !(rs.next()) ) {
 				if(dao.inserir(quest) == true)
@@ -56,7 +57,7 @@ public class QuestoesObjetivasBO {
 	
 	public boolean atualizar (QuestoesObjetivas quest) {
 		
-		ResultSet rs = dao.findBySpecifiedField(quest, "codigo");
+		ResultSet rs = dao.findBySpecifiedField(quest, "id_pk");
 		try {
 			if(rs!=null && rs.next() ) {
 				if(dao.alterar(quest) == true)
@@ -71,7 +72,7 @@ public class QuestoesObjetivasBO {
 		}	
 	}
 	public boolean apagar (QuestoesObjetivas quest) {
-		ResultSet rs = dao.findBySpecifiedField(quest, "codigo");
+		ResultSet rs = dao.findBySpecifiedField(quest, "id_pk");
 		try {
 			if(rs!=null && rs.next() ) {
 				if(dao.deletar(quest) == true)
