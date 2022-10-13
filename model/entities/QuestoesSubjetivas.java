@@ -3,8 +3,7 @@ package br.edu.ufersa.sistemageradordeprova.model.entities;
 public class QuestoesSubjetivas extends Questoes {
 	private String resposta;
 
-	public QuestoesSubjetivas(int codigo, int tipo, String enunciado, Disciplina disciplina, String assunto,
-			String dificuldade, String resposta) {
+	public QuestoesSubjetivas(int codigo, int tipo, String enunciado, Disciplina disciplina, String assunto, String dificuldade, String resposta) {
 		super(codigo, tipo, enunciado, disciplina, assunto, dificuldade);
 		this.resposta = resposta;
 	}
@@ -18,9 +17,11 @@ public class QuestoesSubjetivas extends Questoes {
 	}
 
 	public void setResposta(String resposta) {
-		this.resposta = resposta;
+		if (resposta == null || resposta.isEmpty()){
+			System.out.println("Dados não validados");
+		}else{
+			this.resposta = resposta;
+		}
 	}
-	
-	
 	
 }
