@@ -1,6 +1,5 @@
 package br.edu.ufersa.sistemageradordeprova.model.dao;
 
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,18 +9,20 @@ import br.edu.ufersa.sistemageradordeprova.model.entities.QuestoesObjetivas;
 public class QuestoesObjetivasDao extends BaseDao<QuestoesObjetivas>{
 
 	public boolean inserir (QuestoesObjetivas quest) {
-		String sql = "INSERT INTO tb_questaoobj  (enunciado,assuntos,dificuldade,opcao01,opcao02,opcao03,opcao04,opcao05,resposta) VALUES (?,?,?,?,?,?,?,?,?);";
+		String sql = "INSERT INTO tb_questaoobj  (enunciado,tipo,assuntos,dificuldade,pk_disciplina,opcao01,opcao02,opcao03,opcao04,opcao05,resposta) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, quest.getEnunciado());
-			pst.setString(2, quest.getAssunto());
+			pst.setInt(2, quest.getTipo());
+			pst.setString(3, quest.getAssunto());
 			pst.setString(3, quest.getDificuldade());
-			pst.setString(4, quest.getOpcao01());
-			pst.setString(5, quest.getOpcao02());
-			pst.setString(6, quest.getOpcao03());
-			pst.setString(7, quest.getOpcao04());
-			pst.setString(8, quest.getOpcao05());
-			pst.setString(9, quest.getResposta());
+			pst.setObject(4, quest.getDisciplina());
+			pst.setString(5, quest.getOpcao01());
+			pst.setString(6, quest.getOpcao02());
+			pst.setString(7, quest.getOpcao03());
+			pst.setString(8, quest.getOpcao04());
+			pst.setString(9, quest.getOpcao05());
+			pst.setString(10, quest.getResposta());
 			pst.execute();
 			return true;		
 		
@@ -33,7 +34,7 @@ public class QuestoesObjetivasDao extends BaseDao<QuestoesObjetivas>{
 	}
 	
 	public boolean deletar(QuestoesObjetivas quest) {
-		String sql = "DELETE FROM tb_questaoobj WHERE codigo=?;";
+		String sql = "DELETE FROM tb_questaoobj WHERE id_pk=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setLong(1, quest.getCodigo());
@@ -50,7 +51,7 @@ public class QuestoesObjetivasDao extends BaseDao<QuestoesObjetivas>{
 	}
 	
 	public boolean alterar(QuestoesObjetivas quest) {
-		String sql = "UPDATE tb_questaoobj SET enunciado=?,assuntos=?,dificuldade=?,opcao01=?,opcao02=?,opcao03=?,opcao04=?,opcao05=?,resposta=? WHERE codigo=? ";
+		String sql = "UPDATE tb_questaoobj SET enunciado=?,assuntos=?,dificuldade=?,opcao01=?,opcao02=?,opcao03=?,opcao04=?,opcao05=?,resposta=? WHERE id_pk=? ";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, quest.getEnunciado());
@@ -74,11 +75,11 @@ public class QuestoesObjetivasDao extends BaseDao<QuestoesObjetivas>{
 	}
 	
 
-	public QuestoesObjetivas findById(QuestoesObjetivas e) {
-		String sql = "SELECT * FROM tb_aluno WHERE id=? ;";
+	public QuestoesObjetivas findById(QuestoesObjetivas quest) {
+		String sql = "SELECT * FROM tb_questaoobj WHERE id_pk=? ;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setInt(1, e.getCodigo());
+			pst.setInt(1, quest.getCodigo());
 			ResultSet rs = pst.executeQuery();
 			if(rs.next()) {
 				QuestoesObjetivas a = new QuestoesObjetivas();
@@ -92,7 +93,7 @@ public class QuestoesObjetivasDao extends BaseDao<QuestoesObjetivas>{
 				a.setOpcao04(rs.getString("opcao04"));
 				a.setOpcao05(rs.getString("opcao05"));
 				
-				a.setCodigo(e.getCodigo());
+				a.setCodigo(quest.getCodigo());
 				return a;
 			}
 			else return null;
@@ -128,7 +129,7 @@ public class QuestoesObjetivasDao extends BaseDao<QuestoesObjetivas>{
 			case "enunciado":
 				pst.setString(1, e.getEnunciado());
 				break;
-				
+		
 			case "dificuldade":
 				pst.setString(1, e.getDificuldade());
 				break;
@@ -140,18 +141,23 @@ public class QuestoesObjetivasDao extends BaseDao<QuestoesObjetivas>{
 			case "opcao02":
 				pst.setString(1, e.getOpcao02());
 				break;
+				
 			case "opcao03":
 				pst.setString(1, e.getOpcao03());
 				break;
+				
 			case "opcao04":
 				pst.setString(1, e.getOpcao04());
 				break;
+				
 			case "opcao05":
 				pst.setString(1, e.getOpcao05());
 				break;
+				
 			case "resposta":
 				pst.setString(1, e.getResposta());
 				break;
+				
 			default: 
 				pst.setInt(1, e.getCodigo());
 			}
@@ -167,7 +173,7 @@ public class QuestoesObjetivasDao extends BaseDao<QuestoesObjetivas>{
 	}
 	
 	public QuestoesObjetivas buscar(QuestoesObjetivas quest) {
-		String sql = "SELECT * FROM tb_questaoobj WHERE cpf=? ;";
+		String sql = "SELECT * FROM tb_questaoobj WHERE id_pk=? ;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setInt(1, quest.getCodigo());
@@ -185,7 +191,7 @@ public class QuestoesObjetivasDao extends BaseDao<QuestoesObjetivas>{
 		
 	}
 	
-	//buscar uma quest„o objetiva
+	//buscar uma quest√£o objetiva
 	public ResultSet buscar() {
 		String sql = "SELECT * FROM tb_questaoobj;";
 		try {
