@@ -10,7 +10,7 @@ public class BaseDao<entity> implements BaseInterDAO<entity>{
 	synchronized public Connection getConnection() {
 		if(con == null) {
 			try {
-				con = DriverManager.getConnection("jdbc:mysql://localhost/academia","geradordeprovas","geradordeprovas1234");
+				con = DriverManager.getConnection("jdbc:mysql://localhost/dbgeradordeprovas","geradordeprovas","geradordeprovas1234");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
