@@ -1,11 +1,11 @@
-// package model.entity descomentar depois de criar a pasta model
-package entity;
+package model.entity 
 import java.util.ArrayList;
 
 public class Disciplina {
   private int codigo;
   private String nome;
   private String[] assunto;
+
   ArrayList<Disciplina> listaDeDisciplinas = new ArrayList<Disciplina>();
 
   //set de nome
@@ -51,38 +51,3 @@ public class Disciplina {
     setAssunto(assunto);
     getAssunto();
   }
-
-
-  // METODOS SERAO TRANSFERIDOS PARA DisciplinaBO
-
-
-  // metodo para cadastrar uma disciplina
-  public void cadastrarDisciplina(String nome, int codigo, String assunto) {
-    Disciplina disciplina;
-    disciplina = new Disciplina(nome, codigo, assunto );
-    listaDeDisciplinas.add(disciplina);
-  }
-
-  // metodo para editar uma disciplina
-  public void editarDisciplina(String nome, int codigo, String assunto) {
-    for(Disciplina disciplina : listaDeDisciplinas) {
-      if(disciplina.codigo == codigo) {
-        disciplina.nome = nome;
-        disciplina.codigo = codigo;
-        disciplina.assunto = assunto;
-
-        listaDeDisciplinas.set(codigo, disciplina);
-      }
-    }
-  }
-
-  // metodo para remover uma disciplina
-  public void removerDisciplina(int codigo) {
-    for(Disciplina disciplina : listaDeDisciplinas) {
-      if(disciplina.codigo == codigo) {
-        listaDeDisciplinas.remove(disciplina);
-      }
-    }
-  }
-  
-}
