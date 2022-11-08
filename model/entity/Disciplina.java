@@ -1,4 +1,4 @@
-package model.entity 
+package model.entity; 
 import java.util.ArrayList;
 
 public class Disciplina {
