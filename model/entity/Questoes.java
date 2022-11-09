@@ -1,4 +1,4 @@
-package br.edu.ufersa.sistemageradordeprova.model.entities;
+package model.entity;
 
 public abstract class Questoes {
 	private int codigo;
