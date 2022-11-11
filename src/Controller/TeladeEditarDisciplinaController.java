@@ -12,21 +12,20 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.entity.Disciplina;
-import model.entity.Questoes;
 import model.service.DisciplinaBO;
-import model.service.QuestoesObjetivasBO;
-import model.service.QuestoesSubjetivasBO;
 
-public class TelaDisciplinaController {
+public class TeladeEditarDisciplinaController {
 	@FXML private Button BotãoDisciplina;
 	@FXML private Button BotaoQuestoes;
 	@FXML private Button BotaoInicio;
 	@FXML private Button BotaoProvas;
-	@FXML private Button CadastrarDisciplina;
+	@FXML private Button Voltar;
 	@FXML private Button EditarDisciplina;
-	@FXML private Button RemoverDisciplina;
+	@FXML private TextField EditarAssuntosTexto;
+	@FXML private TextField EditarNomeTexto;
 	@FXML private TableView<Disciplina> TabelaDisciplinas;
 	@FXML private TableColumn<Disciplina, String> ColunaDisciplinasID;
 	@FXML private TableColumn<Disciplina, String> ColunaDisciplinasNome;
@@ -45,55 +44,31 @@ public class TelaDisciplinaController {
 		ColunaDisciplinasAssunto.setCellValueFactory(new PropertyValueFactory<>("assunto"));
 		TabelaDisciplinas.setItems(listaDeDisciplinas);
 	}
-
-	public void CadastrarDisciplina(ActionEvent event) {
-		Telas.telaCadastrarDisciplina();
-	}
-	
-	public void EditarDisciplina(ActionEvent event) {
+	public void EditarDisciplina(ActionEvent event){
+		Disciplina disciplina = TabelaDisciplinas.getSelectionModel().getSelectedItem(); 
 		try { 
-			if (TabelaDisciplinas.getSelectionModel().getSelectedItem() == null) 
-				{ 
-			throw new Exception();
-				} 	
-			else {
-			Telas.telaEditarDisciplina();
-				}
-			}
-		catch(Exception E) {
-				
-		}
-		
-	}
-		
-	public void RemoverDisciplina(ActionEvent event) {
-		DisciplinaBO<Questoes> bo2 = new QuestoesObjetivasBO();
-		DisciplinaBO<Questoes> bo3 = new QuestoesSubjetivasBO();
-		try { 
-			if (TabelaDisciplinas.getSelectionModel().getSelectedItem() == null) 
-		{ 
-			throw new Exception();
-		} 
-			bo.remover(TabelaDisciplinas.getSelectionModel().getSelectedItem());
-			List<Questoes> questoesobjetiva = bo2.listar();
-			for (Questoes questaoobjetiva : questoesobjetiva) { 
-				if (questaoobjetiva.getIdDisciplina() == TabelaDisciplinas.getSelectionModel().getSelectedItem().getCodigo()) { 
-					bo2.remover(questaoobjetiva); 
+			if (disciplina == null) {
+				throw new Exception(); 
+				} 
+			else { 
+				if (EditarNomeTexto.getText().length() < 1 || EditarAssuntosTexto.getText().length() < 1) {
+					throw new Exception(); 
 					} 
-				}
-			for (Questoes questaosubjetiva : questoesobjetiva) { 
-				if (questaosubjetiva.getIdDisciplina() == TabelaDisciplinas.getSelectionModel().getSelectedItem().getCodigo()) { 
-					bo2.remover(questaosubjetiva); 
-					} 
-				}
-			TabelaDisciplinas.getItems().removeAll(TabelaDisciplinas.getSelectionModel().getSelectedItem());
-		}
-		
-		catch(Exception E) {
+		disciplina.setAssunto(EditarAssuntosTexto.getText()); 
+		disciplina.setNome(EditarNomeTexto.getText()); 
+		bo.alterar(disciplina);  
+		listaDeDisciplinas.set(disciplina.getCodigo(), disciplina); 
+			} 
+		}  
+		catch (Exception e) {
 			
+			} 
 		}
-	}
 	
+	
+	public void Voltar(ActionEvent event){
+		Telas.telaDisciplinas();
+	}
 	public void Disciplinas(ActionEvent event){
 		Telas.telaDisciplinas();
 	}

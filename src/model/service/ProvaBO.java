@@ -7,9 +7,10 @@ import java.util.List;
 
 import model.dao.ProvaDao;
 import model.dao.BaseInterDAO;
+import model.entity.Disciplina;
 import model.entity.Prova;
 
-public class ProvaBO {
+public class ProvaBO extends BaseBO<Prova> implements BaseInterBO<Prova>{
 	BaseInterDAO<Prova> dao = new ProvaDao();
 	public boolean adicionar(Prova prova) {
 		ResultSet rs = dao.findBySpecifiedField(prova, "id");

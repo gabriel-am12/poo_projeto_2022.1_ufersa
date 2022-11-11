@@ -15,8 +15,8 @@ public class ProvaDao extends BaseDao<Prova>{
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setInt(1, prova.getId());
-			pst.setQuestao(2, prova.quantQuestoes());
-			pst.setDisciplina(3, prova.getDisciplina());
+			pst.setString(2,prova.getQuestao());
+			pst.setString(3, prova.getDisciplina());
 			pst.setDate(4, prova.getData());
 			pst.execute();
 			return true;		

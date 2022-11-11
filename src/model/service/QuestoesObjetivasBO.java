@@ -10,7 +10,7 @@ import model.dao.BaseInterDAO;
 import model.entity.QuestoesObjetivas;
 
 
-public class QuestoesObjetivasBO {
+public class QuestoesObjetivasBO extends BaseBO<QuestoesObjetivas> implements BaseInterBO<QuestoesObjetivas> {
 	BaseInterDAO<QuestoesObjetivas> dao =  new QuestoesObjetivasDao();
 	public boolean adicionar(QuestoesObjetivas quest) {
 		ResultSet rs = dao.findBySpecifiedField(quest, "id_pk");

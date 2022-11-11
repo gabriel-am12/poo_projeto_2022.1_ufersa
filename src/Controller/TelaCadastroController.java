@@ -30,7 +30,7 @@ public class TelaCadastroController {
 		vo.setNome(cadastrar_nome.getText());
 		vo.setSenha(cadastrar_senha.getText());
 		confirmar_Senha = confirmar_senha.getText();
-		ResultSet rs = UsuarioDAO.listarPorLogin(vo);
+		ResultSet rs = UsuarioDAO.listar(vo);
 		if (rs.next()) {
 			throw new Exception();
 		}

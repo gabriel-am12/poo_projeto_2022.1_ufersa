@@ -43,6 +43,6 @@ public class TelaLoginController {
 	
 	@FXML
 	public void EsqueceuSenha(ActionEvent event) {
-		
+		Telas.telaEsqueceuSenha();
 	}
 }

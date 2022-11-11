@@ -2,6 +2,7 @@ package model.entity;
 
 public abstract class Questoes {
 	private int codigo;
+	private int idDisciplina;
 	private int tipo;
 	private String enunciado;
 	private Disciplina disciplina;
@@ -61,6 +62,14 @@ public abstract class Questoes {
 	
 	public Disciplina getDisciplina() {
 		return disciplina;
+	}
+	
+	public int getIdDisciplina() {
+		return idDisciplina;
+	}
+	
+	public void setIdDisciplina(int idDisciplina) {
+		this.idDisciplina = idDisciplina;
 	}
 	
 	public void setDisciplina(Disciplina disciplina) {

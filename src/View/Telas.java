@@ -22,9 +22,9 @@ public class Telas extends Application {
 
 	public void start(Stage pS) throws Exception {
 		setPrimaryStage(pS);
-		pS.setTitle("GerTest");
+		pS.setTitle("GeradorDeProvas");
 		pS.show();
-		telaLogin();
+		telaEditarDisciplina();
 	}
 
 	public static void telaLogin(){
@@ -52,10 +52,24 @@ public class Telas extends Application {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void telaEsqueceuSenha(){
+		try {
+			FXMLLoader loader = new FXMLLoader(Telas.class.getResource("/TelaEsqueceuSenha.fxml"));
+			Pane DisciplinaScreen = loader.load();
+			Scene cena = new Scene(DisciplinaScreen);
+			primaryStage.setScene(cena);
+			primaryStage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 
 	public static void telaDisciplinas(){
 		try {
-			FXMLLoader loader = new FXMLLoader(Telas.class.getResource("/TeladeDisciplina.fxml"));
+			FXMLLoader loader = new FXMLLoader(Telas.class.getResource("/TeladeDisiciplina.fxml"));
 			Pane DisciplinaScreen = loader.load();
 			Scene cena = new Scene(DisciplinaScreen);
 			primaryStage.setScene(cena);
@@ -68,7 +82,20 @@ public class Telas extends Application {
 
 	public static void telaCadastrarDisciplina(){
 		try {
-			FXMLLoader loader = new FXMLLoader(Telas.class.getResource("/TeladeCadastroDisciplina.fxml"));
+			FXMLLoader loader = new FXMLLoader(Telas.class.getResource("/TeladeCadastrarDisciplina.fxml"));
+			Pane CadastroDisciplinaScreen = loader.load();
+			Scene cena = new Scene(CadastroDisciplinaScreen);
+			primaryStage.setScene(cena);
+			primaryStage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void telaEditarDisciplina(){
+		try {
+			FXMLLoader loader = new FXMLLoader(Telas.class.getResource("/TeladeEditarDisciplina.fxml"));
 			Pane CadastroDisciplinaScreen = loader.load();
 			Scene cena = new Scene(CadastroDisciplinaScreen);
 			primaryStage.setScene(cena);

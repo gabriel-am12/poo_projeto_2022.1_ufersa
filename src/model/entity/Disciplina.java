@@ -43,12 +43,7 @@ public class Disciplina {
   }
 
   // Disciplina
-  public Disciplina(String nome, int codigo, String assunto) {
-    setNome(nome);
-    getNome();
-    setCodigo(codigo);
-    getCodigo();
-    setAssunto(assunto);
-    getAssunto();
+  public Disciplina() {
+    
   }
 }

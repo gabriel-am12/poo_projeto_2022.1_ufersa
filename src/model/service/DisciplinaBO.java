@@ -9,12 +9,11 @@ import model.entity.Disciplina;
 import model.dao.DisciplinaDAO;
 import model.dao.BaseInterDAO;
 
-public class DisciplinaBO {
-    BaseInterDAO<Disciplina> dao = new DisciplinaDAO();
-    public boolean cadastrar(Disciplina disciplina) {
+public class DisciplinaBO extends BaseBO<Disciplina> implements BaseInterBO<Disciplina>{
+    private static BaseInterDAO<Disciplina> dao = new DisciplinaDAO<>();
+    public boolean adicionar(Disciplina disciplina){
         ResultSet rs = dao.findBySpecifiedField(disciplina, "codigo");
-
-        try {
+        try{
             if(rs == null) || !(rs.next()) {
                 if(dao.inserir(disciplina) == true)
                     return true;
@@ -45,8 +44,8 @@ public class DisciplinaBO {
      catch (SQLException e) {
         e.printStackTrace();
         return null;
+     }
     }
-}
     public boolean alterar (Disciplina disciplina) {
         ResultSet rs = dao.findBySpecifiedField(disciplina, "codigo");
         
@@ -63,7 +62,7 @@ public class DisciplinaBO {
         }
     }
 
-    public boolean remover (Disciplina disciplina) {
+    public boolean apagar (Disciplina disciplina) {
         ResultSet rs = dao.findBySpecifiedField(disciplina, "codigo");
         try {
             if(rs !=null && rs.next()) {

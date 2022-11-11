@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import model.entity.Disciplina;
 
-public class DisciplinaDAO extends BaseDAO<Disciplina>{
+public class DisciplinaDAO extends BaseDao<Disciplina>{
 
     public boolean inserir (Disciplina disciplina) {
         String sql = "INSERT INTO tb_disciplina (codigo,nome,assunto) VALUES (?,?,?);";
