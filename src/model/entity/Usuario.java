@@ -1,4 +1,6 @@
-package model.entity; 
+package model.entity;
+
+import Dto.UsuarioDTO;
 
 public class Usuario {
     private int id_usuario;
@@ -88,5 +90,14 @@ public class Usuario {
     	frase = frase + "\nEmail = " + this.email;
     	return frase;
     }
+    
+    public static Usuario converter(UsuarioDTO dto) {
+		Usuario user = new Usuario();
+		user.setLogin(dto.getLogin());
+		user.setNome(dto.getNome());
+		user.setSenha(dto.getSenha());
+		user.setEmail(dto.getEmail());
+		return user;
+	}
     
 }

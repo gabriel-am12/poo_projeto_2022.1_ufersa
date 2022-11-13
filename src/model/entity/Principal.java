@@ -3,6 +3,7 @@ package model.entity;
 import java.util.List;
 
 import model.dao.BaseDao;
+import model.dao.DisciplinaDAO;
 import model.dao.UsuarioDAO;
 
 public class Principal {
@@ -10,16 +11,14 @@ public class Principal {
 	//CLASSE UTILIZADA PARA REALIZAR ALGUNS TESTES NO PROGRAMA
 
 
-	public static void main(String []args) {
+//	public static void main(String []args) {
 		
 		
 		//TESTANDO A CONEXÃO COM O BANCO DE DADOS OK
-		BaseDao dao = new BaseDao();
-		System.out.println(dao.getConnection());
+		//BaseDao dao = new BaseDao();
+		//System.out.println(dao.getConnection());
 		
-		//TESTE ADICIONAR USUARIO
-		UsuarioDAO dao02 = new UsuarioDAO();
-		
+	
 		/*
 		
 		Usuario user = new Usuario();
@@ -52,15 +51,15 @@ public class Principal {
 		dao02.inserir(userdudu);
 		*/
 		
+		//DisciplinaDAO dao02 = new DisciplinaDAO();
 		
+		//List<Disciplina> disciplinas = (List<Disciplina>) dao02.findAll();
 		
-		List<Usuario> usuarios = dao02.listar();
+		//for(Disciplina userall: disciplinas) {
+		//	System.out.println(userall);
+		//}
 		
-		for(Usuario userall: usuarios) {
-			System.out.println(userall);
-		}
-		
-	}
+//	}
 
 
 }

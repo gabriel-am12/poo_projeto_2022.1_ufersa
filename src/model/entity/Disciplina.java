@@ -1,16 +1,21 @@
 package model.entity; 
 import java.util.ArrayList;
 
+import Dto.DisciplinaDTO;
+
 public class Disciplina {
-  private int codigo;
-  private String nome;
-  private String assunto;
+	private int id;
+	private String codigo;
+	private String nome;
+	private String assuntos;
 
   ArrayList<Disciplina> listaDeDisciplinas = new ArrayList<Disciplina>();
 
+  
   //set de nome
   public void setNome(String nome) {
-    this.nome = nome;
+	  if(nome != null && !nome.isEmpty())
+		  this.nome = nome;
   }
 
   //get de nome
@@ -18,37 +23,77 @@ public class Disciplina {
     return nome;
   }
 
-  //codigo n√£o pode ser negativo
-  public void setCodigo(int codigo) {
-    if(codigo < 0)
-      Math.abs(codigo); // usando Math.abs para deixar o valor absoluto
-      this.codigo = codigo;
-
-    this.codigo = codigo;
+  //codigo n„o pode ser negativo
+  public void setCodigo(String codigo) {
+	  if(codigo != null && !codigo.isEmpty())
+		  this.codigo = codigo;
   }
 
   // get de codigo
-  public int getCodigo() {
+  public String getCodigo() {
     return codigo;
   }
 
   // set de assunto
-  public void setAssunto(String assunto) {
-    this.assunto = assunto;
+  public void setAssuntos(String assuntos) {
+	  if(assuntos != null && !assuntos.isEmpty())
+		  this.assuntos = assuntos;
   }
 
   //get de assunto
-  public String getAssunto() {
-    return assunto;
+  public String getAssuntos() {
+    return assuntos;
   }
 
-  // Disciplina
-  public Disciplina(String nome, int codigo, String assunto) {
-    setNome(nome);
-    getNome();
-    setCodigo(codigo);
-    getCodigo();
-    setAssunto(assunto);
-    getAssunto();
+
+public int getId() {
+	return id;
+}
+
+public void setId(int id) {
+	if(id < 0){
+		Math.abs(id);
+		this.id = id;
+		}else{
+		this.id = id;
+		}
+}
+
+//CRIA«√O DE ALGUNS CONSTRUTORES
+
+	public Disciplina(int id, String codigo, String nome, String assunto) {
+		setId(id);
+		setCodigo(codigo);
+		setNome(nome);
+		setAssuntos(assunto);
+	}
+  
+  public Disciplina() {
+  	
   }
+
+  public Disciplina(String codigo, String nome) {
+  	setCodigo(codigo);
+  	setNome(nome);
+  }
+  
+//METODO TOSTRING PARA PRINTAR TODAS AS INFORMA«’ES NA TELA NA HOJE DOS TESTES
+  
+  public String toString() {
+  	String frase="";
+  	frase = "\nId = " + this.id;
+  	frase = frase + "\nCodigo = " + this.codigo;
+  	frase = frase + "\nNome = " + this.nome;
+  	frase = frase + "\nAssunto = " + this.assuntos;
+  	return frase;
+  }
+  
+  public static Disciplina converter(DisciplinaDTO dto) {
+		Disciplina disciplina = new Disciplina();
+		disciplina.setCodigo(dto.getCodigo());
+		disciplina.setNome(dto.getNome());
+		disciplina.setAssuntos(dto.getAssuntos());
+		return disciplina;
+	}
+
 }

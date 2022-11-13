@@ -1,48 +1,23 @@
 package Controller;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.*;
-import javafx.scene.control.*; 
-import model.service.UsuarioBO;
-import model.dao.BaseInterDAO;
-import model.dao.UsuarioDAO;
-import model.entity.Usuario;
-import View.Telas;
 
+import Dto.UsuarioDTO;
+import View.Telas;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import model.service.UsuarioBO;
 
 public class TelaLoginController {
-	@FXML private TextField LoginTextField;
-	@FXML private TextField SenhaTextField;
-	@FXML private Label ErroAut;
-	@FXML private Button BotaoCriarConta;
-	@FXML private Button BotaoLogin;
-	@FXML private Button BotaoEsqueceuSenha;
-	private static BaseInterDAO<Usuario> usuBO = new UsuarioBO<Usuario>();
-	private Integer ReturnAutenticar;
+	@FXML private TextField login;
+	@FXML private TextField senha;
+	private UsuarioBO bo = new UsuarioBO();
 	
-	@FXML
-	public void Login(ActionEvent event) throws Exception {
-		Usuario user = new Usuario();
-		user.setNome(LoginTextField.getText());
-		user.setSenha(SenhaTextField.getText());
-		try{
-			Usuario Logado = usuBO.autenticar(user);
-			if (Logado instanceof Usuario) {
-				Telas.telaDisciplinas();
-			}
-		}
-		catch(Exception E){
-			E.printStackTrace();
-		}
+	public static void realizarlogin() {
+		Telas.telaDashboard();
 	}
 	
-	@FXML
-	public void CriarConta(ActionEvent event){
-		Telas.telaCadastro();
-	}
-	
-	@FXML
-	public void EsqueceuSenha(ActionEvent event) {
-		
+	public static void criarconta() {
+		Telas.TeladeCadastro();
 	}
 }

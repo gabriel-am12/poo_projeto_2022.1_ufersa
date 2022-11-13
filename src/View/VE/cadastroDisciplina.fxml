@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="455.0" prefWidth="577.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CadastroDisciplinaController">
+   <children>
+      <Pane layoutX="29.0" layoutY="2.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label layoutX="40.0" layoutY="83.0" prefHeight="17.0" prefWidth="85.0" text="Nome:" />
+            <Label layoutX="40.0" layoutY="113.0" prefHeight="17.0" prefWidth="85.0" text="Codigo:" />
+            <Label layoutX="40.0" layoutY="154.0" prefHeight="17.0" prefWidth="85.0" text="Assuntos:" />
+         </children>
+      </Pane>
+      <Button layoutX="186.0" layoutY="313.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="61.0" prefWidth="173.0" text="Cadastrar" />
+      <Label layoutX="89.0" layoutY="270.0" text="Clique no botão cadastrar para realizar cadastro da disciplina:" />
+      <Label layoutX="173.0" layoutY="21.0" prefHeight="18.0" prefWidth="232.0" text="TELA DE CADASTRO DE DISCIPLINA" />
+      <TextField fx:id="nome" layoutX="197.0" layoutY="89.0" prefHeight="26.0" prefWidth="232.0" />
+      <TextField fx:id="codigo" layoutX="197.0" layoutY="129.0" prefHeight="26.0" prefWidth="232.0" />
+      <TextField fx:id="assuntos" layoutX="197.0" layoutY="176.0" prefHeight="26.0" prefWidth="232.0" />
+   </children>
+</AnchorPane>

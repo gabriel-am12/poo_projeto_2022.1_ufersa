@@ -6,15 +6,15 @@ import java.sql.SQLException;
 
 import model.entity.Disciplina;
 
-public class DisciplinaDAO extends BaseDAO<Disciplina>{
+public class DisciplinaDAO extends BaseDao<Disciplina>{
 
-    public boolean inserir (Disciplina disciplina) {
-        String sql = "INSERT INTO tb_disciplina (codigo,nome,assunto) VALUES (?,?,?);";
+    public boolean inserir(Disciplina disciplina) {
+        String sql = "INSERT INTO tb_disciplina (codigo,nome,assuntos) VALUES (?,?,?)";
         try {
             PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setInt(1, disciplina.getCodigo());
+			pst.setString(1, disciplina.getCodigo());
 			pst.setString(2, disciplina.getNome());
-			pst.setString(3, disciplina.getAssunto());
+			pst.setString(3, disciplina.getAssuntos());
 			pst.execute();
 			return true;
         } catch (SQLException e) {
@@ -22,58 +22,65 @@ public class DisciplinaDAO extends BaseDAO<Disciplina>{
             return false;
         }
     }
-
+    
     public boolean deletar(Disciplina disciplina) {
-        String sql = "DELETE FROM tb_disciplina WHERE codigo=?;";
-        try {
-            PreparedStatement pst = getConnection().prepareStatement(sql);
-            pst.setInt(1, disciplina.getCodigo());
-            pst.execute();
-
-            return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public boolean alterar(Disciplina disciplina) {
-        String sql = "UPDATE tb_disciplina SET codigo=?,nome=?,assunto=? WHERE codigo=?";
-        try {
-            PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setInt(1, disciplina.getCodigo());
+		String sql = "DELETE FROM tb_disciplina WHERE codigo = ?";
+		try {
+			PreparedStatement pst = getConnection().prepareStatement(sql);
+			pst.setString(1, disciplina.getCodigo());
 			pst.execute();
 			
 			return true;
-        } catch (SQLException e) {
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	public boolean alterar(Disciplina disciplina) {
+		String sql = "UPDATE tb_disciplina SET codigo=?,nome=?,assuntos=? WHERE codigo=? ";
+		try {
+			PreparedStatement pst = getConnection().prepareStatement(sql);
+			pst.setString(1, disciplina.getCodigo());
+			pst.setString(2, disciplina.getNome());
+			pst.setString(3, disciplina.getAssuntos());
+			pst.executeUpdate();
+			return true;		
+		
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}	
-    }
-
-    public Disciplina findById(Disciplina e) {
-		String sql = "SELECT * FROM tb_disciplina WHERE codigo=?;";
+		
+	}
+	
+	public Disciplina findById(Disciplina e) {
+		String sql = "SELECT * FROM tb_disciplina WHERE id = ?";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setInt(1, e.getCodigo());
+			pst.setInt(1, e.getId());
 			ResultSet rs = pst.executeQuery();
 			if(rs.next()) {
-				Disciplina a = new Disciplina();
-				a.setNome(rs.getString("nome"));
-				a.setAssunto(rs.getString("assunto"));
-				a.setCodigo(e.getCodigo());
-				return a;
+				Disciplina disciplina = new Disciplina();
+				disciplina.setCodigo(rs.getString("codigo"));
+				disciplina.setNome(rs.getString("nome"));
+				disciplina.setAssuntos(rs.getString("assuntos"));
+				disciplina.setId(e.getId());
+				return disciplina;
 			}
 			else return null;
 		
 		} catch (SQLException ex) {
+			// TODO Auto-generated catch block
 			ex.printStackTrace();
 			return null;
 		}
 	}
 
-    @Override
+	@Override
 	public ResultSet findAll() {
 		String sql = "SELECT * FROM tb_disciplina;";
 		try {
@@ -88,26 +95,26 @@ public class DisciplinaDAO extends BaseDAO<Disciplina>{
 		}
 	}
 
-    @Override
+	@Override
 	public ResultSet findBySpecifiedField(Disciplina disciplina, String field) {
-		String sql = "SELECT * FROM tb_disciplina WHERE " + field +"=? ;";
+		String sql = "SELECT * FROM tb_disciplina WHERE " + field +" = ?";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			switch (field) {
-			case "codigo":
-				pst.setInt(1,disciplina.getCodigo());
-				break;
-				
 			case "nome":
-				pst.setString(1,disciplina.getNome());
+				pst.setString(1, disciplina.getNome());
 				break;
 				
-			case "assunto":
-				pst.setString(1,disciplina.getAssunto());
+			case "codigo":
+				pst.setString(1, disciplina.getCodigo());
 				break;
 				
+			case "assuntos":
+				pst.setString(1, disciplina.getAssuntos());
+				break;
+			
 			default: 
-				pst.setInt(1,disciplina.getCodigo());
+				pst.setInt(1, disciplina.getId());
 			}
 			
 			ResultSet rs = pst.executeQuery();
@@ -119,12 +126,12 @@ public class DisciplinaDAO extends BaseDAO<Disciplina>{
 			return null;
 		}
 	}
-
-    public Disciplina buscar(Disciplina disciplina) {
-		String sql = "SELECT * FROM tb_disciplina WHERE codigo=? ;";
+	
+	public Disciplina buscar(Disciplina disciplina) {
+		String sql = "SELECT * FROM tb_disciplina WHERE nome = ?";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setInt(1, disciplina.getCodigo());
+			pst.setString(1, disciplina.getNome());
 			ResultSet rs = pst.executeQuery();
 			if(rs.next()) {
 				return disciplina;
@@ -138,8 +145,8 @@ public class DisciplinaDAO extends BaseDAO<Disciplina>{
 		}
 		
 	}
-
-    public ResultSet buscar() {
+	
+	public ResultSet buscar() {
 		String sql = "SELECT * FROM tb_disciplina;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
@@ -154,5 +161,6 @@ public class DisciplinaDAO extends BaseDAO<Disciplina>{
 		}
 		
 	}
+	
 
 }

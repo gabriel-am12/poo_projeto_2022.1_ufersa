@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TelaDashboardController">
+   <children>
+      <Pane layoutX="-318.0" layoutY="-18.0" prefHeight="492.0" prefWidth="997.0" style="-fx-background-color: #0F928C;">
+         <children>
+            <Pane layoutX="571.0" layoutY="44.0" prefHeight="436.0" prefWidth="410.0" style="-fx-background-color: #D9D9D9;">
+               <children>
+                  <Label layoutX="99.0" layoutY="83.0" text="Todas as provas criadas:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TableView layoutX="28.0" layoutY="127.0" prefHeight="275.0" prefWidth="354.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="C1" />
+                      <TableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            <VBox layoutX="317.0" layoutY="18.0" prefHeight="474.0" prefWidth="212.0" style="-fx-background-color: #006465;">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button mnemonicParsing="false" onAction="#verdisciplinas" prefHeight="25.0" prefWidth="239.0" style="-fx-background-color: #006465;" text="Disciplinas" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="239.0" style="-fx-background-color: #006465;" text="Questões" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="239.0" style="-fx-background-color: #006465;" text="Provas" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="140.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button mnemonicParsing="false" onAction="#sairdoprograma" prefHeight="25.0" prefWidth="240.0" style="-fx-background-color: #006465;" text="Sair" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children></Pane>
+   </children>
+</AnchorPane>

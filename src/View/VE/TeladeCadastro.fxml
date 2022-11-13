@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0F928C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CadastroUsuarioController">
+   <children>
+      <AnchorPane layoutX="28.0" layoutY="8.0" prefHeight="233.0" prefWidth="544.0" style="-fx-background-color: #D9D9D9;">
+         <children>
+            <Label layoutX="71.0" layoutY="54.0" prefHeight="17.0" prefWidth="72.0" text="Usuario:" />
+            <Label layoutX="71.0" layoutY="88.0" prefHeight="17.0" prefWidth="106.0" text="Nome Completo:" />
+            <Label layoutX="71.0" layoutY="120.0" prefHeight="17.0" prefWidth="106.0" text="Senha:" />
+            <Label layoutX="71.0" layoutY="149.0" prefHeight="17.0" prefWidth="106.0" text="Email:" />
+            <TextField fx:id="login" layoutX="188.0" layoutY="50.0" prefHeight="25.0" prefWidth="246.0" />
+            <TextField fx:id="nome" layoutX="188.0" layoutY="84.0" prefHeight="25.0" prefWidth="246.0" />
+            <PasswordField fx:id="email" layoutX="188.0" layoutY="145.0" prefHeight="25.0" prefWidth="246.0" />
+            <PasswordField fx:id="senha" layoutX="188.0" layoutY="116.0" prefHeight="25.0" prefWidth="246.0" />
+            <Button fx:id="realizar_cadastro" layoutX="277.0" layoutY="184.0" mnemonicParsing="false" onAction="#cadastrar" style="-fx-background-color: #B9D3B0;" text="Cadastrar">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+            <Button layoutX="191.0" layoutY="184.0" mnemonicParsing="false" onAction="#voltarpagina" style="-fx-background-color: #B9D3B0;" text="Voltar">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+            <Label layoutX="223.0" layoutY="8.0" text="Cadastro">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="168.0" fitWidth="382.0" layoutX="120.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/Frame%209.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
