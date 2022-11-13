@@ -33,8 +33,8 @@ show tables;
 create table if not exists tb_disciplina(
 	id int auto_increment primary key,
 	codigo varchar(10) not null,
-    nome varchar(20) not null,
-    assuntos varchar(100),
+    nome varchar(200) not null,
+    assuntos varchar(10000),
     data_criacao timestamp default current_timestamp
 );
 
@@ -89,5 +89,7 @@ create table if not exists tb_prova(
 );
 
 select * from tb_usuario;
+
+select * from tb_disciplina;
 
 #O codigo abaixo tras as informações de 2 tabelas juntas 
