@@ -24,7 +24,7 @@ public class Telas extends Application {
 		setPrimaryStage(pS);
 		pS.setTitle("GeradorDeProvas");
 		pS.show();
-		telaEditarDisciplina();
+		telaLogin();
 	}
 
 	public static void telaLogin(){
@@ -171,9 +171,9 @@ public class Telas extends Application {
 		}
 	}
 
-	public static void telaCadastrarQuestoesNaProva(){
+	public static void telaCadastrarProva(){
 		try {
-			FXMLLoader loader = new FXMLLoader(Telas.class.getResource("/TeladeCadastro.fxml"));
+			FXMLLoader loader = new FXMLLoader(Telas.class.getResource("/TelaCadastrodeProva.fxml"));
 			Pane CadastroProvaScreen = loader.load();
 			Scene cena = new Scene(CadastroProvaScreen);
 			primaryStage.setScene(cena);
