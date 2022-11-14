@@ -1,6 +1,8 @@
 package model.entity; 
 import java.util.ArrayList;
 
+import api.dto.DisciplinaDTO;
+
 public class Disciplina {
   private int codigo;
   private String nome;
@@ -43,7 +45,10 @@ public class Disciplina {
   }
 
   // Disciplina
-  public Disciplina() {
-    
+  public static Disciplina converter (DisciplinaDTO disciplinadto) {
+	  	Disciplina disciplina = new Disciplina();
+	  	disciplina.setAssunto(disciplinadto.getAssuntos());
+	  	disciplina.setNome(disciplinadto.getNome());
+	  return disciplina;
   }
 }

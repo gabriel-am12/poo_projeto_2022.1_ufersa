@@ -5,10 +5,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import api.dto.ProvaDTO;
 import model.dao.ProvaDao;
 import model.dao.BaseInterDAO;
 import model.entity.Disciplina;
 import model.entity.Prova;
+import model.entity.Questoes;
 
 public class ProvaBO extends BaseBO<Prova> implements BaseInterBO<Prova>{
 	BaseInterDAO<Prova> dao = new ProvaDao();
@@ -28,15 +30,17 @@ public class ProvaBO extends BaseBO<Prova> implements BaseInterBO<Prova>{
 		}	
 		
 	}
-	public List<Prova> listar(){
-		List<Prova> provas = new ArrayList<Prova>();
+	public List<ProvaDTO> listar(){
+		List<ProvaDTO> provas = new ArrayList<ProvaDTO>();
 		ResultSet rs = dao.findAll();
 		try {
 			while(rs.next()) {
-				Prova prova = new Prova();
+				ProvaDTO prova = new ProvaDTO();
 				prova.setId(rs.getInt("id"));
-				prova.setQuestao(rs.getQuestao(questao));
-				prova.setDisciplina(rs.getDisciplina(disciplina));
+				prova.setNivelUm(rs.getInt("nivelUm"));
+				prova.setNivelUm(rs.getInt("nivelDois"));
+				prova.setNivelUm(rs.getInt("nivelTres"));
+				prova.setDisciplina(rs.getString("disciplina"));
 				prova.setData(rs.getDate("Data"));
 				
 				provas.add(prova);
@@ -65,11 +69,11 @@ public class ProvaBO extends BaseBO<Prova> implements BaseInterBO<Prova>{
 			return false;
 		}	
 	}
-	public boolean apagar (Prova prova) {
-		ResultSet rs = dao.findBySpecifiedField(prova, "id");
+	public boolean apagar (ProvaDTO provadto) {
+		ResultSet rs = dao.findBySpecifiedField(provadto, "id");
 		try {
 			if(rs!=null && rs.next() ) {
-				if(dao.deletar(prova) == true)
+				if(dao.deletar(provadto) == true)
 					return true;
 					else return false;
 			}

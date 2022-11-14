@@ -1,4 +1,6 @@
-package model.entity; 
+package model.entity;
+
+import api.dto.UsuarioDTO;
 
 public class Usuario {
     private int id_usuario;
@@ -46,5 +48,12 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
+    public static Usuario converter(UsuarioDTO usudto) {
+    	Usuario usuario = new Usuario();
+    	usuario.setNome(usudto.getNome());
+    	usuario.setEmai1(usudto.getEmail());
+	  	usuario.setLogin(usudto.getLogin());
+	  	usuario.setSenha(usudto.getSenha());
+    	return usuario;
+    }
 }
