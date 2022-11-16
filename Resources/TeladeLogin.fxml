@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0F92BC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="api.Controller.TelaLoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0F92BC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TelaLoginController">
    <children>
       <ImageView fitHeight="185.0" fitWidth="600.0" layoutX="95.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -27,16 +27,17 @@
             <TextField fx:id="SenhaTextField" layoutX="87.0" layoutY="110.0" prefHeight="25.0" prefWidth="278.0" />
             <Button fx:id="BotaoLogin" layoutX="364.0" layoutY="110.0" mnemonicParsing="false" onAction="#Login" style="-fx-background-color: #8b8b8b; -fx-border-radius: none;" text="▶" />
             <Button fx:id="BotaoEsqueceuSenha" layoutX="87.0" layoutY="144.0" mnemonicParsing="false" onAction="#EsqueceuSenha" prefHeight="25.0" prefWidth="131.0" text="Esqueci Minha Senha" />
-            <Label fx:id="ErroAut" layoutX="73.0" layoutY="48.0" text="Senha/Login Incorreto(s)" textFill="RED" visible="false" />
             <Label layoutX="87.0" layoutY="35.0" prefHeight="27.0" prefWidth="300.0" text="Sistema de Gerenciamento de Provas">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
+            <Label fx:id="ErroAut" layoutX="172.0" layoutY="14.0" text="Senha/Login Incorreto(s)" textFill="RED" visible="false" />
          </children>
       </Pane>
       <Label layoutX="104.0" layoutY="96.0" style="-fx-background-color: #b9d3d0;" text="Login:" />
       <Label layoutX="101.0" layoutY="131.0" style="-fx-background-color: #b9d3d0;" text="Senha:" />
       <TextField fx:id="LoginTextField" layoutX="151.0" layoutY="92.0" prefHeight="25.0" prefWidth="300.0" />
+      <Label fx:id="ErroAut2" prefHeight="17.0" prefWidth="35.0" text="Senha/Login Incorreto(s)" textAlignment="CENTER" textFill="RED" visible="false" />
    </children>
 </Pane>

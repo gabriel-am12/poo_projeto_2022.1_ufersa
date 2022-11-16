@@ -14,22 +14,21 @@
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0f928c;">
          <children>
-            <Pane layoutX="143.0" layoutY="21.0" prefHeight="270.0" prefWidth="417.0" style="-fx-background-color: #d9d9d9;">
+            <Pane layoutX="139.0" layoutY="21.0" prefHeight="305.0" prefWidth="417.0" style="-fx-background-color: #d9d9d9;">
                <children>
-                  <TableView fx:id="TabelaDisciplinas" layoutX="107.0" layoutY="23.0" prefHeight="150.0" prefWidth="290.0">
+                  <TableView fx:id="tabelaDisciplina" layoutX="113.0" layoutY="23.0" prefHeight="150.0" prefWidth="290.0">
                      <columns>
-                        <TableColumn fx:id="ColunaDisciplinasID" prefWidth="75.0" text="ID" />
-                        <TableColumn fx:id="ColunaDisciplinasNome" prefWidth="75.0" text="Nome" />
-                        <TableColumn fx:id="ColunaDisciplinasAssunto" prefWidth="139.0" text="Assunto" />
+                        <TableColumn fx:id="columnCodigo" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="columnNome" prefWidth="75.0" text="Nome" />
+                        <TableColumn fx:id="columnAssunto" prefWidth="139.0" text="Assunto" />
                      </columns>
                   </TableView>
                   <Label layoutX="28.0" layoutY="23.0" style="-fx-background-color: #b3d9b0; -fx-padding: 5px;" text="Disciplina" />
-                  <Button fx:id="Voltar" layoutX="22.0" layoutY="219.0" mnemonicParsing="false" onAction="#Voltar" style="-fx-background-color: #b3d9b0;" text="⬅Voltar" />
-                  <Button fx:id="EditarDisciplina" layoutX="96.0" layoutY="219.0" mnemonicParsing="false" onAction="#EditarDisciplina" style="-fx-background-color: #b3d9b0;" text="Salvar⬇" />
-                  <Label layoutX="173.0" layoutY="190.0" style="-fx-background-color: #b3d9b0;" text="Nome:" />
-                  <TextField fx:id="EditarNomeTexto" layoutX="224.0" layoutY="186.0" prefHeight="25.0" prefWidth="173.0" />
-                  <Label layoutX="168.0" layoutY="223.0" style="-fx-background-color: #b3d9b0;" text="Assunto:" />
-                  <TextField fx:id="EditarAssuntosTexto" layoutX="224.0" layoutY="219.0" prefHeight="25.0" prefWidth="173.0" />
+                  <Button fx:id="Voltar" layoutX="28.0" layoutY="266.0" mnemonicParsing="false" onAction="#Voltar" style="-fx-background-color: #b3d9b0;" text="⬅Voltar" />
+                  <Label layoutX="181.0" layoutY="245.0" style="-fx-background-color: #b3d9b0;" text="Nome:" />
+                  <TextField fx:id="EditarNomeTexto" layoutX="230.0" layoutY="241.0" prefHeight="25.0" prefWidth="173.0" />
+                  <TextField fx:id="EditarCodigoTexto1" layoutX="230.0" layoutY="204.0" prefHeight="25.0" prefWidth="173.0" />
+                  <Label layoutX="181.0" layoutY="208.0" style="-fx-background-color: #b3d9b0;" text="Codigo:" />
                </children>
             </Pane>
             <VBox prefHeight="400.0" prefWidth="110.0" style="-fx-background-color: #484848;">
@@ -45,6 +44,9 @@
                   <Image url="@../../../../../Downloads/College%20students%20sit%20on%20the%20grass%20in%20front%20of%20the%20university%20building.png" />
                </image>
             </ImageView>
+            <Button fx:id="EditarDisciplina" layoutX="238.0" layoutY="286.0" mnemonicParsing="false" onAction="#EditarDisciplina" style="-fx-background-color: #b3d9b0;" text="Salvar⬇" />
+            <TextField fx:id="EditarAssuntosTexto" layoutX="370.0" layoutY="291.0" prefHeight="25.0" prefWidth="173.0" />
+            <Label layoutX="311.0" layoutY="295.0" style="-fx-background-color: #b3d9b0;" text="Assunto:" />
          </children>
       </Pane>
    </children>
