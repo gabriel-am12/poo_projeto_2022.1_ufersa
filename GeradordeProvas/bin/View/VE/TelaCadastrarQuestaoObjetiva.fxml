@@ -24,8 +24,8 @@
                   <TextField layoutX="81.0" layoutY="69.0" prefHeight="25.0" prefWidth="116.0" />
                   <Label layoutX="220.0" layoutY="45.0" prefHeight="17.0" prefWidth="60.0" style="-fx-background-color: #b3d9b0;" text="Disciplina:" />
                   <Label layoutX="217.0" layoutY="73.0" prefHeight="17.0" prefWidth="67.0" style="-fx-background-color: #b3d9b0;" text="Dificuldade:" />
-                  <ComboBox layoutX="292.0" layoutY="41.0" prefHeight="25.0" prefWidth="125.0" />
-                  <ComboBox layoutX="292.0" layoutY="69.0" prefHeight="25.0" prefWidth="125.0" />
+                  <ComboBox fx:id="combodisciplina" layoutX="292.0" layoutY="41.0" onAction="#mostrarvaloresdisciplina" prefHeight="25.0" prefWidth="125.0" promptText="Selecione" />
+                  <ComboBox layoutX="292.0" layoutY="69.0" prefHeight="25.0" prefWidth="125.0" promptText="Selecione" />
                   <Label layoutX="23.0" layoutY="94.0" prefHeight="17.0" prefWidth="60.0" style="-fx-background-color: #b3d9b0;" text="Enunciado:" />
                   <TextField layoutX="18.0" layoutY="117.0" prefHeight="69.0" prefWidth="395.0" />
                   <Label layoutX="24.0" layoutY="186.0" prefHeight="17.0" prefWidth="60.0" style="-fx-background-color: #b3d9b0;" text="Opções:" />

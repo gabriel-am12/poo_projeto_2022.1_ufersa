@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import View.Telas;
 import dto.DisciplinaDTO;
+import dto.UsuarioDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import model.dao.DisciplinaDAO;
 import model.entity.Disciplina;
 import model.entity.Questoes;
 import model.service.DisciplinaBO;
@@ -58,7 +60,10 @@ public class TelaDisciplinaController implements Initializable{
 	}
 	
 	public void RemoverDisciplina(ActionEvent event) {
-		
+		Disciplina dto = new Disciplina();
+		dto.setCodigo(cod);
+		bo.apagar(dto);
+		Telas.TeladeDisciplina();
 	}
 	
 	/*
@@ -98,4 +103,15 @@ public class TelaDisciplinaController implements Initializable{
 	public void Provas(ActionEvent event){
 		Telas.TeladeProvas();
 	}
+	
+	String cod;
+	   @FXML
+	    void selecionaritemtabela(MouseEvent event) {
+		   	int i = tabelaDisciplina.getSelectionModel().getSelectedIndex();
+		   	DisciplinaDTO disc = (DisciplinaDTO)tabelaDisciplina.getItems().get(i);
+		   	System.out.println(disc.getNome());
+		   	cod = disc.getCodigo();
+	    }
+	   
+
 }

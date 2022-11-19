@@ -7,6 +7,10 @@ import model.service.UsuarioBO;
 import model.dao.BaseInterDAO;
 import model.dao.UsuarioDAO;
 import model.entity.Usuario;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import View.Telas;
 import dto.UsuarioDTO;
 
@@ -21,41 +25,27 @@ public class TelaLoginController {
 	private static UsuarioBO usuBO = new UsuarioBO();
 	private Integer ReturnAutenticar;
 	
-	/*
-	@FXML
-	public void Login(ActionEvent event) throws Exception {
-		UsuarioDTO user = new UsuarioDTO();
-		user.setLogin(LoginTextField.getText());
-		user.setSenha(SenhaTextField.getText());
-		try{
-			Usuario Logado = usuBO.autenticar(user);
-			if (Logado instanceof Usuario) {
+	public void Login(ActionEvent event) {
+		try {
+			String nome, senha;
+			nome = LoginTextField.getText();
+			senha = SenhaTextField.getText();
+			UsuarioDTO objusuario = new UsuarioDTO();
+			objusuario.setLogin(nome);
+			objusuario.setSenha(senha);
+			UsuarioDAO objusuariodao = new UsuarioDAO();
+			ResultSet rsusuario = objusuariodao.logaruser(objusuario);
+			if(rsusuario.next()) {
 				Telas.TelaDashboard();
+			}else {
+				ErroAut.setText("Usuario ou senha invalidos!");
+				ErroAut.setVisible(true);
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		catch(Exception E){
-			E.printStackTrace();
-			ErroAut.setText("Usuario ou senha invalidos!");
-			ErroAut.setVisible(true);
-		}
+		
 	}
-	*/
-	
-	@FXML protected void Login(ActionEvent event)  throws Exception{
-		Usuario user = new Usuario();
-		boolean allSet = user.autenticar(LoginTextField.getText(), SenhaTextField.getText());
-	
-		if(allSet) {
-			Telas.TelaDashboard();
-		}else {
-		ErroAut.setText("Usuario ou senha invalidos!");
-		ErroAut.setVisible(true);
-		}
-	}
-	
-
-	
-	
 	
 	@FXML
 	public void CriarConta(ActionEvent event){

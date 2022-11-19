@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.UsuarioDTO;
 import model.entity.Usuario;
 
 public class UsuarioDAO extends BaseDao<Usuario>{
@@ -116,5 +117,20 @@ public class UsuarioDAO extends BaseDao<Usuario>{
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public ResultSet logaruser(UsuarioDTO usuario) {
+			String sql = "select * from tb_usuario where login = ? and senha = ?";
+			PreparedStatement ptst;
+			try {
+				ptst = getConnection().prepareStatement(sql);
+				ptst.setString(1, usuario.getLogin());
+				ptst.setString(2, usuario.getSenha());
+				ResultSet rs = ptst.executeQuery();
+				return rs;
+			}catch(SQLException e) {
+				e.printStackTrace();
+				return null;
+			}
 	}
 }

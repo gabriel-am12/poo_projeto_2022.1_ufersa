@@ -28,5 +28,9 @@ public class DisciplinaDTO {
 		public void setAssuntos(String assuntos) {
 			this.assuntos = assuntos;
 		}
+		
+		public String toString() {
+			return nome;
+		}
 	    
 }

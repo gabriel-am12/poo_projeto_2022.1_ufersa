@@ -57,4 +57,26 @@ public int getId() {
 public void setId(int id) {
 	this.id = id;
 }
+
+public Disciplina(int id, String codigo, String nome, String assunto, ArrayList<Disciplina> listaDeDisciplinas) {
+	super();
+	this.id = id;
+	this.codigo = codigo;
+	this.nome = nome;
+	this.assunto = assunto;
+	this.listaDeDisciplinas = listaDeDisciplinas;
+}
+
+@Override
+public String toString() {
+	return "Disciplina [id=" + id + ", codigo=" + codigo + ", nome=" + nome + ", assunto=" + assunto
+			+ ", listaDeDisciplinas=" + listaDeDisciplinas + "]";
+}
+
+public Disciplina(){
+	
+}
+
+
+
 }

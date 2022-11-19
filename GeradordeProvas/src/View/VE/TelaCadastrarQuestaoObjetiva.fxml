@@ -21,16 +21,16 @@
                   <TextField layoutX="81.0" layoutY="41.0" prefHeight="25.0" prefWidth="116.0" />
                   <Label layoutX="23.0" layoutY="45.0" prefHeight="17.0" prefWidth="49.0" style="-fx-background-color: #b3d9b0;" text="Codigo:" />
                   <Label layoutX="23.0" layoutY="73.0" prefHeight="17.0" prefWidth="49.0" style="-fx-background-color: #b3d9b0;" text="Assunto:" />
-                  <TextField fx:id="AssuntoTexto" layoutX="81.0" layoutY="69.0" prefHeight="25.0" prefWidth="116.0" />
+                  <TextField layoutX="81.0" layoutY="69.0" prefHeight="25.0" prefWidth="116.0" />
                   <Label layoutX="220.0" layoutY="45.0" prefHeight="17.0" prefWidth="60.0" style="-fx-background-color: #b3d9b0;" text="Disciplina:" />
                   <Label layoutX="217.0" layoutY="73.0" prefHeight="17.0" prefWidth="67.0" style="-fx-background-color: #b3d9b0;" text="Dificuldade:" />
-                  <ComboBox fx:id="DisciplinaChoiceBox" layoutX="292.0" layoutY="41.0" prefHeight="25.0" prefWidth="125.0" />
-                  <ComboBox fx:id="DificuldadeChoiceBox" layoutX="292.0" layoutY="69.0" prefHeight="25.0" prefWidth="125.0" />
+                  <ComboBox fx:id="combodisciplina" layoutX="292.0" layoutY="41.0" onAction="#mostrarvaloresdisciplina" prefHeight="25.0" prefWidth="125.0" promptText="Selecione" />
+                  <ComboBox layoutX="292.0" layoutY="69.0" prefHeight="25.0" prefWidth="125.0" promptText="Selecione" />
                   <Label layoutX="23.0" layoutY="94.0" prefHeight="17.0" prefWidth="60.0" style="-fx-background-color: #b3d9b0;" text="Enunciado:" />
-                  <TextField fx:id="EnunciadoTexto" layoutX="18.0" layoutY="117.0" prefHeight="69.0" prefWidth="395.0" />
+                  <TextField layoutX="18.0" layoutY="117.0" prefHeight="69.0" prefWidth="395.0" />
                   <Label layoutX="24.0" layoutY="186.0" prefHeight="17.0" prefWidth="60.0" style="-fx-background-color: #b3d9b0;" text="Opções:" />
-                  <TextField fx:id="OpcaoATexto" layoutX="54.0" layoutY="203.0" prefHeight="10.0" prefWidth="363.0" />
-                  <TextField fx:id="OpcaoBTexto" layoutX="54.0" layoutY="236.0" prefHeight="25.0" prefWidth="363.0" />
+                  <TextField layoutX="54.0" layoutY="203.0" prefHeight="10.0" prefWidth="363.0" />
+                  <TextField layoutX="54.0" layoutY="236.0" prefHeight="25.0" prefWidth="363.0" />
                   <RadioButton layoutX="22.0" layoutY="207.0" mnemonicParsing="false" text="a)">
                      <toggleGroup>
                         <ToggleGroup fx:id="grupo" />
@@ -39,7 +39,7 @@
                   <RadioButton layoutX="21.0" layoutY="240.0" mnemonicParsing="false" text="b)" toggleGroup="$grupo" />
                   <RadioButton layoutX="21.0" layoutY="269.0" mnemonicParsing="false" text="c)" toggleGroup="$grupo" />
                   <RadioButton layoutX="20.0" layoutY="297.0" mnemonicParsing="false" text="d)" toggleGroup="$grupo" />
-                  <TextField fx:id="OpcaoCTexto" layoutX="54.0" layoutY="265.0" prefHeight="25.0" prefWidth="363.0" />
+                  <TextField layoutX="54.0" layoutY="265.0" prefHeight="25.0" prefWidth="363.0" />
                   <RadioButton layoutX="20.0" layoutY="324.0" mnemonicParsing="false" text="e)" toggleGroup="$grupo" />
                   <Label layoutX="127.0" layoutY="2.0" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: #b3d9b0;" text="Adicionar Questão Objetiva">
                      <font>
@@ -61,10 +61,10 @@
                   <Image url="@../testeScene%20builder/a09f070f56efaf214157421b3d39eed4.png" />
                </image>
             </ImageView>
-            <Button fx:id="voltar" layoutX="281.0" layoutY="370.0" mnemonicParsing="false" onAction="#voltar" prefHeight="27.0" prefWidth="76.0" style="-fx-background-color: #b3d9b0;" text="Voltar" />
-            <Button fx:id="cadastrar" layoutX="364.0" layoutY="370.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="27.0" prefWidth="76.0" style="-fx-background-color: #b3d9b0;" text="Cadastrar" />
-            <TextField fx:id="OpcaoDTexto" layoutX="202.0" layoutY="309.0" prefHeight="25.0" prefWidth="363.0" />
-            <TextField fx:id="OpcaoETexto" layoutX="202.0" layoutY="335.0" prefHeight="25.0" prefWidth="363.0" />
+            <Button layoutX="281.0" layoutY="370.0" mnemonicParsing="false" onAction="#voltar" prefHeight="27.0" prefWidth="76.0" style="-fx-background-color: #b3d9b0;" text="Voltar" />
+            <Button layoutX="364.0" layoutY="370.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="27.0" prefWidth="76.0" style="-fx-background-color: #b3d9b0;" text="Cadastrar" />
+            <TextField layoutX="202.0" layoutY="309.0" prefHeight="25.0" prefWidth="363.0" />
+            <TextField layoutX="202.0" layoutY="335.0" prefHeight="25.0" prefWidth="363.0" />
          </children>
       </Pane>
    </children>

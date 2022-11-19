@@ -8,8 +8,6 @@ public class Usuario {
     private String nome;
     private String login;
     private String senha;
-
-    //GARANTINDO A INTEGRIDADE DOS DADOS COM OS METODOS GETS E SETS
     
     public int getId_usuario() {
         return id_usuario;
@@ -78,9 +76,7 @@ public class Usuario {
     	setLogin(login);
     	setSenha(senha);
     }
-    
-//METODO TOSTRING PARA PRINTAR TODAS AS INFORMAÇÕES NA TELA NA HOJE DOS TESTES
-    
+        
     public String toString() {
     	String frase="";
     	frase = "\nId = " + this.id_usuario;
@@ -99,12 +95,4 @@ public class Usuario {
 	  	usuario.setSenha(usudto.getSenha());
     	return usuario;
     }
-    
-    public boolean autenticar(String login, String senha) {
-		if(login.equals("admin") && senha.equals("admin")) {
-			return true;
-		}
-		return false;
-	}
-    
 }

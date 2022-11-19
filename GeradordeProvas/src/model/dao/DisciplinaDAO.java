@@ -24,7 +24,7 @@ public class DisciplinaDAO extends BaseDao<Disciplina>{
     }
 
     public boolean deletar(Disciplina disciplina) {
-        String sql = "DELETE FROM tb_disciplina WHERE codigo=?;";
+        String sql = "DELETE FROM tb_disciplina WHERE codigo = ?;";
         try {
             PreparedStatement pst = getConnection().prepareStatement(sql);
             pst.setString(1, disciplina.getCodigo());

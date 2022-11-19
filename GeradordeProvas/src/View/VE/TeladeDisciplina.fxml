@@ -13,7 +13,7 @@
    <children>
       <Pane layoutX="143.0" layoutY="21.0" prefHeight="270.0" prefWidth="417.0" style="-fx-background-color: #d9d9d9;">
          <children>
-            <TableView fx:id="tabelaDisciplina" layoutX="107.0" layoutY="23.0" prefHeight="180.0" prefWidth="290.0">
+            <TableView fx:id="tabelaDisciplina" layoutX="107.0" layoutY="23.0" onMouseClicked="#selecionaritemtabela" prefHeight="180.0" prefWidth="290.0">
               <columns>
                 <TableColumn fx:id="columnCodigo" prefWidth="75.0" text="Codigo" />
                 <TableColumn fx:id="columnNome" prefWidth="75.0" text="Nome" />
