@@ -30,18 +30,18 @@ public class ProvaBO extends BaseBO<Prova> implements BaseInterBO<Prova>{
 		}	
 		
 	}
-	public List<ProvaDTO> listar(){
-		List<ProvaDTO> provas = new ArrayList<ProvaDTO>();
+	public List<Prova> listar(){
+		List<Prova> provas = new ArrayList<Prova>();
 		ResultSet rs = dao.findAll();
 		try {
 			while(rs.next()) {
-				ProvaDTO prova = new ProvaDTO();
+				Prova prova = new Prova();
 				prova.setId(rs.getInt("id"));
 				prova.setNivelUm(rs.getInt("nivelUm"));
 				prova.setNivelUm(rs.getInt("nivelDois"));
 				prova.setNivelUm(rs.getInt("nivelTres"));
 				//prova.setDisciplina(rs.getString("disciplina"));
-				prova.setData(rs.getDate("Data"));
+				prova.setData(rs.getString("Data"));
 				
 				provas.add(prova);
 			}
@@ -69,7 +69,7 @@ public class ProvaBO extends BaseBO<Prova> implements BaseInterBO<Prova>{
 			return false;
 		}	
 	}
-	public boolean apagar (ProvaDTO provadto) {
+	public boolean apagar (Prova provadto) {
 		ResultSet rs = dao.findBySpecifiedField(provadto, "id");
 		try {
 			if(rs!=null && rs.next() ) {

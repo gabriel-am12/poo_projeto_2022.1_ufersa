@@ -15,9 +15,11 @@ public class ProvaDao extends BaseDao<Prova>{
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setInt(1, prova.getId());
-			pst.setString(2,prova.getQuestao());
-			pst.setString(3, prova.getDisciplina());
-			pst.setDate(4, prova.getData());
+			pst.setInt(2,prova.getNivelUm());
+			pst.setInt(3,prova.getNivelDois());
+			pst.setInt(4,prova.getNivelTres());
+			pst.setInt(5, prova.getIdDisciplina());
+			pst.setString(6, prova.getData());
 			pst.execute();
 			return true;		
 		
@@ -49,9 +51,12 @@ public class ProvaDao extends BaseDao<Prova>{
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setInt(1, provinha.getId());
-			pst.setString(2, provinha.getQuestao());
-			pst.setString(3, provinha.getDisciplina());
-			pst.setDate(4, provinha.getData());
+			pst.setInt(2,provinha.getNivelUm());
+			pst.setInt(3,provinha.getNivelDois());
+			pst.setInt(4,provinha.getNivelTres());
+			pst.setInt(5, provinha.getIdDisciplina());
+			pst.setString(6, provinha.getData());
+			pst.execute();
 			pst.executeUpdate();
 			return true;		
 		
@@ -72,9 +77,11 @@ public class ProvaDao extends BaseDao<Prova>{
 			if(rs.next()) {
 				Prova provinhaaa = new Prova();
 				provinhaaa.setId(rs.getInt("id"));
-				provinhaaa.setQuestao(rs.getString("questao"));
-				provinhaaa.setDisciplina(rs.getString("disciplina"));
-				provinhaaa.setData(rs.getDate("data"));
+				provinhaaa.setNivelUm(rs.getInt("nivelUm"));
+				provinhaaa.setNivelDois(rs.getInt("nivelDois"));
+				provinhaaa.setNivelTres(rs.getInt("nivelTres"));
+				provinhaaa.setIdDisciplina(rs.getInt("disciplina"));
+				provinhaaa.setData(rs.getString("data"));
 				provinhaaa.setId(provinhaa.getId());
 				return provinhaaa;
 			}
@@ -111,17 +118,13 @@ public class ProvaDao extends BaseDao<Prova>{
 			case "id":
 				pst.setInt(1, provazinha.getId());
 				break;
-				
-			case "Questao":
-				pst.setQuestao(1, provazinha.getQuestao());
-				break;
-				
+			
 			case "Disciplina":
-				pst.setDisciplina(1, provazinha.getDisciplina());
+				pst.setInt(1, provazinha.getIdDisciplina());
 				break;
 				
 			case "Data":
-				pst.setDate(1, provazinha.getData());
+				pst.setString(1, provazinha.getData());
 				break;
 			
 			default: 

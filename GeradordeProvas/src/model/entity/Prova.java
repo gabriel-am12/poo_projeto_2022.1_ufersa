@@ -9,9 +9,8 @@ import dto.ProvaDTO;
 
 public class Prova {
 		private int id;
-		
-		private Disciplina Discplina;
-		private Date Data;
+		private int IdDisciplina;
+		private String Data;
 		private int nivelUm;
 	    private int nivelDois;
 	    private int nivelTres; 
@@ -39,16 +38,16 @@ public class Prova {
 		public void setId(int id) {
 			this.id = id;
 		}
-		public Disciplina getDisciplina() {
-			return Discplina;
+		public int getIdDisciplina() {
+			return IdDisciplina;
 		}
-		public void setDisciplina(Disciplina disciplina) {
-			this.Discplina = disciplina;
+		public void setIdDisciplina(int disciplina) {
+			this.IdDisciplina = disciplina;
 		}
-		public java.sql.Date getData() {
-			return (java.sql.Date) Data;
+		public String getData() {
+			return Data;
 		}
-		public void setData(Date data) {
+		public void setData(String data) {
 			this.Data = data;
 		}
 		
@@ -57,7 +56,7 @@ public class Prova {
 			prova.setNivelUm(provadto.getNivelUm());
 			prova.setNivelDois(provadto.getNivelDois());
 			prova.setNivelTres(provadto.getNivelTres());
-		  	prova.setDisciplina(provadto.getDisciplina());
+		  	prova.setIdDisciplina(provadto.getIdDisciplina());
 		  	prova.setData(provadto.getData());
 			return prova;
 		}

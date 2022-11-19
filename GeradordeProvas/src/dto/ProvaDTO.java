@@ -7,7 +7,8 @@ import model.entity.Questoes;
 
 public class ProvaDTO {
 	private int Id;
-	private Date Data;;
+	private int idDisciplina;
+	private String Data;;
     private int nivelUm;
     private int nivelDois;
     private int nivelTres; 
@@ -35,27 +36,25 @@ public class ProvaDTO {
 		this.nivelTres = nivelTres;
 	}
 	
-    private Disciplina disciplina;
-    
-	public Date getData() {
+	public String getData() {
 		return Data;
 	}
 	
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.Data = data;
 	}
-	public Disciplina getDisciplina() {
-		return disciplina;
+	public int getIdDisciplina() {
+		return idDisciplina;
 	}
 	
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
+	public void setIdDisciplina(int disciplina) {
+		this.idDisciplina = disciplina;
 	}
 
 	public void setId(int id) {
 		this.Id = id;
 	}
 	public int getId(int id) {
-		return id;
+		return Id;
 	}
 }
