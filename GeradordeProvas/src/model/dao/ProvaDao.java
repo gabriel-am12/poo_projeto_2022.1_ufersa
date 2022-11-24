@@ -11,15 +11,15 @@ import model.entity.Prova;
 public class ProvaDao extends BaseDao<Prova>{
 	
 	public boolean inserir (Prova prova) {
-		String sql = "INSERT INTO tb_prova  (codigo,questao,disciplinas,data) VALUES (?,?,?,?);";
+		String sql = "INSERT INTO tb_prova (semestre,nivelUm,nivelDois,nivelTres,disciplina,codigo) VALUES (?,?,?,?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setInt(1, prova.getId());
-			pst.setInt(2,prova.getNivelUm());
-			pst.setInt(3,prova.getNivelDois());
-			pst.setInt(4,prova.getNivelTres());
-			pst.setInt(5, prova.getIdDisciplina());
-			pst.setString(6, prova.getData());
+			pst.setString(1, prova.getSemestre());
+			pst.setString(2, prova.getNivelUm());
+			pst.setString(3, prova.getNivelDois());
+			pst.setString(4, prova.getNivelTres());
+			pst.setString(5, prova.getDisciplina());
+			pst.setString(6, prova.getCodigo());
 			pst.execute();
 			return true;		
 		
@@ -31,12 +31,11 @@ public class ProvaDao extends BaseDao<Prova>{
 	}
 	
 	public boolean deletar(Prova provaa) {
-		String sql = "DELETE FROM tb_prova WHERE id=?;";
+		String sql = "DELETE FROM tb_prova WHERE codigo=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			pst.setInt(1, provaa.getId());
+			pst.setString(1, provaa.getCodigo());
 			pst.execute();
-			
 			return true;
 		
 		} catch (SQLException e) {
@@ -51,12 +50,11 @@ public class ProvaDao extends BaseDao<Prova>{
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setInt(1, provinha.getId());
-			pst.setInt(2,provinha.getNivelUm());
-			pst.setInt(3,provinha.getNivelDois());
-			pst.setInt(4,provinha.getNivelTres());
-			pst.setInt(5, provinha.getIdDisciplina());
-			pst.setString(6, provinha.getData());
-			pst.execute();
+			pst.setString(2,provinha.getNivelUm());
+			pst.setString(3,provinha.getNivelDois());
+			pst.setString(4,provinha.getNivelTres());
+			pst.setString(5, provinha.getDisciplina());
+			pst.setString(6, provinha.getSemestre());
 			pst.executeUpdate();
 			return true;		
 		
@@ -77,12 +75,12 @@ public class ProvaDao extends BaseDao<Prova>{
 			if(rs.next()) {
 				Prova provinhaaa = new Prova();
 				provinhaaa.setId(rs.getInt("id"));
-				provinhaaa.setNivelUm(rs.getInt("nivelUm"));
-				provinhaaa.setNivelDois(rs.getInt("nivelDois"));
-				provinhaaa.setNivelTres(rs.getInt("nivelTres"));
-				provinhaaa.setIdDisciplina(rs.getInt("disciplina"));
-				provinhaaa.setData(rs.getString("data"));
-				provinhaaa.setId(provinhaa.getId());
+				provinhaaa.setNivelUm(rs.getString("nivelUm"));
+				provinhaaa.setNivelDois(rs.getString("nivelDois"));
+				provinhaaa.setNivelTres(rs.getString("nivelTres"));
+				provinhaaa.setDisciplina(rs.getString("disciplina"));
+				provinhaaa.setSemestre(rs.getString("semestre"));
+				provinhaaa.setCodigo(rs.getString("codigo"));
 				return provinhaaa;
 			}
 			else return null;
@@ -118,15 +116,18 @@ public class ProvaDao extends BaseDao<Prova>{
 			case "id":
 				pst.setInt(1, provazinha.getId());
 				break;
-			
+				
 			case "Disciplina":
-				pst.setInt(1, provazinha.getIdDisciplina());
+				pst.setString(1, provazinha.getDisciplina());
 				break;
 				
-			case "Data":
-				pst.setString(1, provazinha.getData());
+			case "semestre":
+				pst.setString(1, provazinha.getSemestre());
 				break;
-			
+				
+			case "codigo":
+				pst.setString(1,provazinha.getCodigo());
+				
 			default: 
 				pst.setInt(1, provazinha.getId());
 			}

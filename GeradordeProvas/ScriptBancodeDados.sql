@@ -1,7 +1,6 @@
  #Mostrar todos os banco de dados do programa
 show databases;
 
-#Caso exista um banco de dados parecido anteriormente
 #drop  database dbgeradordeprovas;
 
 #Comando para criar um banco de dados novo
@@ -33,8 +32,8 @@ show tables;
 create table if not exists tb_disciplina(
 	id int auto_increment primary key,
 	codigo varchar(10) not null,
-    nome varchar(200) not null,
-    assuntos varchar(10000),
+    nome text not null,
+    assuntos text,
     data_criacao timestamp default current_timestamp
 );
 
@@ -46,17 +45,18 @@ create table if not exists tb_questaoobj(
     codigo varchar(10),
     enunciado text not null,
     tipo int,
-    assuntos varchar(100) not null,
+    assuntos text not null,
     data_criacao timestamp default current_timestamp,
-    dificuldade int,
-    fk_disciplina int not null,
+    dificuldade varchar(15),
+    fk_disciplina int,
+     disciplina text,
     foreign key (fk_disciplina) references tb_disciplina(id),
-	opcao01 varchar(500) not null,
-    opcao02 varchar(500) not null,
-    opcao03 varchar(500) not null,
-    opcao04 varchar(500) not null,
-    opcao05 varchar(500),
-    resposta varchar(500) not null
+	opcao01 text not null,
+    opcao02 text not null,
+    opcao03 text not null,
+    opcao04 text not null,
+    opcao05 text,
+    resposta text not null
 );
 
 #criação da tabela de questões subjetivas
@@ -65,24 +65,30 @@ create table if not exists tb_questaosub(
 	codigo varchar(10),
     enunciado text not null,
     tipo int,
-    assuntos varchar(100) not null,
+    assuntos text not null,
     data_criacao timestamp default current_timestamp,
-    dificuldade int,
-    fk_disciplina int not null,
+    dificuldade varchar(15),
+    fk_disciplina int,
+	disciplina text,
     foreign key (fk_disciplina) references tb_disciplina(id),
-	resposta varchar(500) not null
+	resposta text not null
 );
 
 #Criação da tabela prova
 create table if not exists tb_prova(
 	id int auto_increment primary key,
-	nome varchar(20) not null,
-    enunciado text not null,
+	nome varchar(20),
+    enunciado text,
 	data_criacao timestamp default current_timestamp,
-    data DATE,
-    fk_questaoobj int not null,
-    fk_questaosub int not null,
-    fk_disciplina int not null,
+    semestre varchar(10),
+    nivelUm varchar(5),
+    nivelDois varchar(5),
+    nivelTres varchar(5),
+    codigo varchar(15),
+    disciplina text,
+    fk_questaoobj int,
+    fk_questaosub int,
+    fk_disciplina int,
     foreign key(fk_questaoobj) references tb_questaoobj(id),
     foreign key(fk_questaosub) references tb_questaosub(id),
 	foreign key(fk_disciplina) references tb_disciplina(id)
@@ -91,5 +97,13 @@ create table if not exists tb_prova(
 select * from tb_usuario;
 
 select * from tb_disciplina;
+
+select * from tb_questaoobj;
+UPDATE tb_questaoobj SET enunciado="enunciado" WHERE id=2;
+UPDATE tb_questaoobj SET codigo="COD",enunciado="DASDS",assuntos="SA",dificuldade="DSA",resposta="W221",disciplina="DWD",opcao01="DWDW",opcao02="2121",opcao03="3232",opcao04="32323",opcao05="3232" WHERE id=1;
+
+select * from tb_questaosub;
+
+select * from tb_prova;
 
 #O codigo abaixo tras as informações de 2 tabelas juntas 

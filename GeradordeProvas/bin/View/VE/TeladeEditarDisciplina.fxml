@@ -10,33 +10,35 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="api.Controller.TeladeEditarDisciplinaController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TeladeEditarDisciplinaController">
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0f928c;">
          <children>
-            <Pane layoutX="139.0" layoutY="21.0" prefHeight="305.0" prefWidth="417.0" style="-fx-background-color: #d9d9d9;">
+            <Pane layoutX="139.0" layoutY="21.0" prefHeight="372.0" prefWidth="454.0" style="-fx-background-color: #d9d9d9;">
                <children>
-                  <TableView fx:id="tabelaDisciplina" layoutX="113.0" layoutY="23.0" prefHeight="150.0" prefWidth="290.0">
+                  <TableView fx:id="tabelaDisciplina" layoutX="185.0" layoutY="24.0" prefHeight="292.0" prefWidth="258.0">
                      <columns>
-                        <TableColumn fx:id="columnCodigo" prefWidth="75.0" text="ID" />
-                        <TableColumn fx:id="columnNome" prefWidth="75.0" text="Nome" />
-                        <TableColumn fx:id="columnAssunto" prefWidth="139.0" text="Assunto" />
+                        <TableColumn fx:id="columnCodigo" prefWidth="84.0" text="Codigo" />
+                        <TableColumn fx:id="columnNome" prefWidth="172.0" text="Nome" />
                      </columns>
                   </TableView>
-                  <Label layoutX="28.0" layoutY="23.0" style="-fx-background-color: #b3d9b0; -fx-padding: 5px;" text="Disciplina" />
-                  <Button fx:id="Voltar" layoutX="28.0" layoutY="266.0" mnemonicParsing="false" onAction="#Voltar" style="-fx-background-color: #b3d9b0;" text="⬅Voltar" />
-                  <Label layoutX="181.0" layoutY="245.0" style="-fx-background-color: #b3d9b0;" text="Nome:" />
-                  <TextField fx:id="EditarNomeTexto" layoutX="230.0" layoutY="241.0" prefHeight="25.0" prefWidth="173.0" />
-                  <TextField fx:id="EditarCodigoTexto1" layoutX="230.0" layoutY="204.0" prefHeight="25.0" prefWidth="173.0" />
-                  <Label layoutX="181.0" layoutY="208.0" style="-fx-background-color: #b3d9b0;" text="Codigo:" />
+                  <Label layoutX="58.0" layoutY="24.0" style="-fx-background-color: #b3d9b0; -fx-padding: 5px;" text="Disciplina" />
+                  <Label layoutX="10.0" layoutY="151.0" style="-fx-background-color: #b3d9b0;" text="Nome:" />
+                  <TextField fx:id="EditarNomeTexto" layoutX="57.0" layoutY="147.0" prefHeight="25.0" prefWidth="118.0" />
+                  <Label layoutX="5.0" layoutY="178.0" style="-fx-background-color: #b3d9b0;" text="Assunto:" />
+                  <TextField fx:id="EditarAssuntosTexto" layoutX="57.0" layoutY="178.0" prefHeight="91.0" prefWidth="118.0" />
+                  <Label layoutX="68.0" layoutY="62.0" style="-fx-background-color: #b3d9b0;" text="Codigo:" />
+                  <TextField fx:id="Codigo" layoutX="6.0" layoutY="86.0" prefHeight="25.0" prefWidth="139.0" />
+                  <Button layoutX="143.0" layoutY="86.0" mnemonicParsing="false" onAction="#buscar" text="Ok" />
                </children>
             </Pane>
             <VBox prefHeight="400.0" prefWidth="110.0" style="-fx-background-color: #484848;">
                <children>
-                  <Button fx:id="BotãoDisciplina" mnemonicParsing="false" onAction="#Disciplinas" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Disciplinas" textFill="WHITE" />
-                  <Button fx:id="BotaoQuestoes" mnemonicParsing="false" onAction="#Questoes" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Questões" textFill="WHITE" />
-                  <Button fx:id="BotaoInicio" mnemonicParsing="false" onAction="#Inicio" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Início" textFill="WHITE" />
-                  <Button fx:id="BotaoProvas" mnemonicParsing="false" onAction="#Provas" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Provas" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#Disciplinas" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Disciplinas" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#Questoes" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Questões" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#Inicio" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Início" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#Provas" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Provas" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#sair" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Sair" textFill="WHITE" />
                </children>
             </VBox>
             <ImageView fitHeight="112.0" fitWidth="243.0" layoutX="235.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
@@ -44,9 +46,8 @@
                   <Image url="@../../../../../Downloads/College%20students%20sit%20on%20the%20grass%20in%20front%20of%20the%20university%20building.png" />
                </image>
             </ImageView>
-            <Button fx:id="EditarDisciplina" layoutX="238.0" layoutY="286.0" mnemonicParsing="false" onAction="#EditarDisciplina" style="-fx-background-color: #b3d9b0;" text="Salvar⬇" />
-            <TextField fx:id="EditarAssuntosTexto" layoutX="370.0" layoutY="291.0" prefHeight="25.0" prefWidth="173.0" />
-            <Label layoutX="311.0" layoutY="295.0" style="-fx-background-color: #b3d9b0;" text="Assunto:" />
+            <Button layoutX="366.0" layoutY="358.0" mnemonicParsing="false" onAction="#EditarDisciplina" style="-fx-background-color: #b3d9b0;" text="Salvar⬇" />
+            <Button layoutX="291.0" layoutY="358.0" mnemonicParsing="false" onAction="#Voltar" style="-fx-background-color: #b3d9b0;" text="⬅Voltar" />
          </children>
       </Pane>
    </children>

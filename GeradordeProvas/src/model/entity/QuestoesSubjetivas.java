@@ -5,8 +5,8 @@ import dto.QuestoesSubjetivasDTO;
 public class QuestoesSubjetivas extends Questoes {
 	private String resposta;
 
-	public QuestoesSubjetivas(String codigo, int tipo, String enunciado, Disciplina disciplina, String assunto,
-			int dificuldade) {
+	public QuestoesSubjetivas(String codigo, int tipo, String enunciado, String disciplina, String assunto,
+			String dificuldade) {
 		super(codigo, tipo, enunciado, disciplina, assunto, dificuldade);
 		// TODO Auto-generated constructor stub
 	}

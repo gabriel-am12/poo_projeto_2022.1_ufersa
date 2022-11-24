@@ -6,11 +6,11 @@ public abstract class Questoes {
 	private String codigo;
 	private int tipo;
 	private String enunciado;
-	private Disciplina disciplina;
+	private String disciplina;
 	private String assunto;
-	private int dificuldade;
+	private String dificuldade;
 	
-	public Questoes(String codigo, int tipo, String enunciado, Disciplina disciplina, String assunto, int dificuldade) {
+	public Questoes(String codigo, int tipo, String enunciado, String disciplina, String assunto, String dificuldade) {
 		setCodigo(codigo);
 		setTipo(tipo);
 		setEnunciado(enunciado);
@@ -59,7 +59,7 @@ public abstract class Questoes {
 		}
 	}
 	
-	public Disciplina getDisciplina() {
+	public String getDisciplina() {
 		return disciplina;
 	}
 	
@@ -71,7 +71,7 @@ public abstract class Questoes {
 		this.idDisciplina = idDisciplina;
 	}
 	
-	public void setDisciplina(Disciplina disciplina) {
+	public void setDisciplina(String disciplina) {
 		if(disciplina == null){
 			System.out.println("Dados não validados");
 		}else{
@@ -91,15 +91,15 @@ public abstract class Questoes {
 		}
 	}
 	
-	public int getDificuldade() {
+	public String getDificuldade() {
 		return dificuldade;
 	}
 	
-	public void setDificuldade(int dificuldade) {
-		if (dificuldade > 0 && dificuldade < 5) {
+	public void setDificuldade(String dificuldade) {
+		if (dificuldade == null || dificuldade.isEmpty()){
+			System.out.println("Dados não validados");
+		}else{
 			this.dificuldade = dificuldade;
-		} else {
-			this.dificuldade = 0;
 		}
 	}
 

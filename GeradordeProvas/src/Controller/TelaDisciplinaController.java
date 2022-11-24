@@ -1,4 +1,4 @@
-package Controller;
+ package Controller;
 
 import java.net.URL;
 import java.util.List;
@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 
 import View.Telas;
 import dto.DisciplinaDTO;
-import dto.UsuarioDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,12 +24,10 @@ import model.service.QuestoesObjetivasBO;
 import model.service.QuestoesSubjetivasBO;
 
 public class TelaDisciplinaController implements Initializable{
-	@FXML private Button BotaoDisciplina;
+	@FXML private Button BotãoDisciplina;
 	@FXML private Button BotaoQuestoes;
 	@FXML private Button BotaoInicio;
 	@FXML private Button BotaoProvas;
-	@FXML private Button Buscar;
-	@FXML private TextField TextoBuscar;
 	@FXML private Button CadastrarDisciplina;
 	@FXML private Button EditarDisciplina;
 	@FXML private Button RemoverDisciplina;
@@ -51,22 +48,6 @@ public class TelaDisciplinaController implements Initializable{
 		columnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		columnAssunto.setCellValueFactory(new PropertyValueFactory<>("assuntos"));
 		tabelaDisciplina.setItems(listaDeDisciplinas);
-	}
-	
-	public void buscar() {
-		if (BuscarTexto.getText().length() < 1) {
-			throw new Exception();
-		}
-		else {
-		List<DisciplinaDTO> disciplinas = bo.listar();
-		ObservableList<DisciplinaDTO> listaDeDisciplinas = FXCollections.observableArrayList(disciplinas);
-		for(int x = 0; x <disciplinas.size();x++) {
-			if(disciplinas.get(x).getNome().contains(BuscarTexto.getText())){
-				listaDeDisciplinas.add(disciplinas.get(x));
-			}
-			tabelaDisciplina.setItems(listaDeDisciplinas);
-		}
-		}
 	}
 
 	public void CadastrarDisciplina(ActionEvent event) {
@@ -129,6 +110,12 @@ public class TelaDisciplinaController implements Initializable{
 		   	DisciplinaDTO disc = (DisciplinaDTO)tabelaDisciplina.getItems().get(i);
 		   	System.out.println(disc.getNome());
 		   	cod = disc.getCodigo();
+		   
+	    }
+	   
+	    @FXML
+	    public void sair(ActionEvent event) {
+	    	Telas.TeladeLogin();
 	    }
 	   
 

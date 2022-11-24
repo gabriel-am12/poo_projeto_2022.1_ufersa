@@ -8,10 +8,9 @@ import java.util.List;
 import dto.QuestoesObjetivasDTO;
 import model.entity.QuestoesObjetivas;
 import model.dao.QuestoesObjetivasDAO;
-import model.dao.BaseInterDAO;
 
 public class QuestoesObjetivasBO{
-	BaseInterDAO<QuestoesObjetivas> dao =  new QuestoesObjetivasDAO();
+	QuestoesObjetivasDAO dao =  new QuestoesObjetivasDAO();
 	public boolean adicionar(QuestoesObjetivasDTO dto) {
 		QuestoesObjetivas quest = QuestoesObjetivas.converter(dto);
 		ResultSet rs = dao.findBySpecifiedField(quest, "codigo");
@@ -36,11 +35,12 @@ public class QuestoesObjetivasBO{
 			while(rs.next()) {
 				QuestoesObjetivasDTO quest = new QuestoesObjetivasDTO();
 				quest.setCodigo(rs.getString("codigo"));
-				quest.setAssunto(rs.getString("assunto"));
-				quest.setDificuldade(rs.getInt("dificuldade"));
+				quest.setAssunto(rs.getString("assuntos"));
+				quest.setDificuldade(rs.getString("dificuldade"));
 				quest.setEnunciado(rs.getString("enunciado"));
 				quest.setOpcao01(rs.getString("opcao01"));
 				quest.setOpcao02(rs.getString("opcao02"));
+				quest.setDisciplina(rs.getString("disciplina"));
 				quest.setOpcao03(rs.getString("opcao03"));
 				quest.setOpcao04(rs.getString("opcao04"));
 				quest.setOpcao05(rs.getString("opcao05"));
@@ -55,8 +55,8 @@ public class QuestoesObjetivasBO{
 		}
 	}
 	
-	public boolean atualizar (QuestoesObjetivas quest) {
-		
+	public boolean atualizar (QuestoesObjetivasDTO dto){
+		QuestoesObjetivas quest = QuestoesObjetivas.converter(dto);
 		ResultSet rs = dao.findBySpecifiedField(quest, "codigo");
 		try {
 			if(rs!=null && rs.next() ) {

@@ -11,13 +11,15 @@ import model.entity.Usuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.security.auth.login.LoginException;
+
 import View.Telas;
 import dto.UsuarioDTO;
 
 
 public class TelaLoginController {
 	@FXML private TextField LoginTextField;
-	@FXML private TextField SenhaTextField;
+    @FXML private PasswordField SenhaTextField;
 	@FXML private Label ErroAut;
 	@FXML private Button BotaoCriarConta;
 	@FXML private Button BotaoLogin;
@@ -25,8 +27,8 @@ public class TelaLoginController {
 	private static UsuarioBO usuBO = new UsuarioBO();
 	private Integer ReturnAutenticar;
 	
-	public void Login(ActionEvent event) {
-		try {
+	public void Login(ActionEvent event) throws LoginException{
+	try {
 			String nome, senha;
 			nome = LoginTextField.getText();
 			senha = SenhaTextField.getText();
@@ -38,8 +40,7 @@ public class TelaLoginController {
 			if(rsusuario.next()) {
 				Telas.TelaDashboard();
 			}else {
-				ErroAut.setText("Usuario ou senha invalidos!");
-				ErroAut.setVisible(true);
+				throw new LoginException("Usuario ou senha invalidos!");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

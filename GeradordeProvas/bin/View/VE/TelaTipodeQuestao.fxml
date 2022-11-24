@@ -31,6 +31,7 @@
                   <Button fx:id="BotaoQuestoes" mnemonicParsing="false" onAction="#questoes" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Questões" textFill="WHITE" />
                   <Button fx:id="BotaoInicio" mnemonicParsing="false" onAction="#inicio" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Início" textFill="WHITE" />
                   <Button fx:id="BotaoProvas" mnemonicParsing="false" onAction="#provas" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Provas" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#sair" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Sair" textFill="WHITE" />
                </children>
             </VBox>
             <ImageView fitHeight="112.0" fitWidth="243.0" layoutX="235.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">

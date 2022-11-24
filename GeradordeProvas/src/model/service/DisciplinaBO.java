@@ -35,6 +35,8 @@ public class DisciplinaBO{
         try {
             while(rs.next()) {
                 DisciplinaDTO disciplina = new DisciplinaDTO();
+                //ultimo modificado
+                disciplina.setId(rs.getInt("id"));
                 disciplina.setCodigo(rs.getString("codigo"));
                 disciplina.setNome(rs.getString("nome"));
                 disciplina.setAssuntos(rs.getString("assuntos"));
@@ -50,7 +52,8 @@ public class DisciplinaBO{
      }
     }
     
-    public boolean atualizar (Disciplina disciplina) {
+    public boolean atualizar (DisciplinaDTO dto) {
+    	Disciplina disciplina = Disciplina.converter(dto);
         ResultSet rs = dao.findBySpecifiedField(disciplina, "codigo");
         
         try {

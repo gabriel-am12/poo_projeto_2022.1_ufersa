@@ -9,29 +9,30 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0f928c;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TelaDisciplinaController"> 
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #0f928c;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TelaDisciplinaController"> 
    <children>
-      <Pane layoutX="143.0" layoutY="21.0" prefHeight="270.0" prefWidth="417.0" style="-fx-background-color: #d9d9d9;">
+      <Pane layoutX="143.0" layoutY="21.0" prefHeight="459.0" prefWidth="729.0" style="-fx-background-color: #d9d9d9;">
          <children>
-            <TableView fx:id="tabelaDisciplina" layoutX="107.0" layoutY="23.0" onMouseClicked="#selecionaritemtabela" prefHeight="180.0" prefWidth="290.0">
+            <TableView fx:id="tabelaDisciplina" layoutX="107.0" layoutY="23.0" onMouseClicked="#selecionaritemtabela" prefHeight="354.0" prefWidth="580.0">
               <columns>
-                <TableColumn fx:id="columnCodigo" prefWidth="75.0" text="Codigo" />
-                <TableColumn fx:id="columnNome" prefWidth="75.0" text="Nome" />
-                  <TableColumn fx:id="columnAssunto" prefWidth="139.0" text="Assunto" />
+                <TableColumn fx:id="columnCodigo" prefWidth="78.0" text="Codigo" />
+                <TableColumn fx:id="columnNome" prefWidth="172.0" text="Nome" />
+                  <TableColumn fx:id="columnAssunto" prefWidth="328.0" text="Assunto" />
               </columns>
             </TableView>
             <Label layoutX="28.0" layoutY="23.0" style="-fx-background-color: #b3d9b0; -fx-padding: 5px;" text="Disciplina" />
-            <Button fx:id="CadastrarDisciplina" layoutX="22.0" layoutY="219.0" mnemonicParsing="false" onAction="#CadastrarDisciplina" style="-fx-background-color: #b3d9b0;" text="Cadastrar Disciplina✚" />
-            <Button fx:id="EditarDisciplina" layoutX="162.0" layoutY="219.0" mnemonicParsing="false" onAction="#EditarDisciplina" style="-fx-background-color: #b3d9b0;" text="Editar Disciplina✎" />
-            <Button fx:id="RemoverDisciplina" layoutX="280.0" layoutY="219.0" mnemonicParsing="false" onAction="#RemoverDisciplina" style="-fx-background-color: #b3d9b0;" text="Remover Disciplina❌" />
+            <Button fx:id="CadastrarDisciplina" layoutX="107.0" layoutY="398.0" mnemonicParsing="false" onAction="#CadastrarDisciplina" style="-fx-background-color: #b3d9b0;" text="Cadastrar Disciplina✚" />
+            <Button fx:id="EditarDisciplina" layoutX="341.0" layoutY="398.0" mnemonicParsing="false" onAction="#EditarDisciplina" style="-fx-background-color: #b3d9b0;" text="Editar Disciplina✎" />
+            <Button fx:id="RemoverDisciplina" layoutX="556.0" layoutY="398.0" mnemonicParsing="false" onAction="#RemoverDisciplina" style="-fx-background-color: #b3d9b0;" text="Remover Disciplina❌" />
          </children>
       </Pane>
-      <VBox prefHeight="400.0" prefWidth="110.0" style="-fx-background-color: #484848;">
+      <VBox prefHeight="500.0" prefWidth="110.0" style="-fx-background-color: #484848;">
          <children>
             <Button fx:id="BotãoDisciplina" mnemonicParsing="false" onAction="#Disciplinas" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Disciplinas" textFill="WHITE" />
             <Button fx:id="BotaoQuestoes" mnemonicParsing="false" onAction="#Questoes" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Questões" textFill="WHITE" />
             <Button fx:id="BotaoInicio" mnemonicParsing="false" onAction="#Inicio" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Início" textFill="WHITE" />
             <Button fx:id="BotaoProvas" mnemonicParsing="false" onAction="#Provas" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Provas" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#sair" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Sair" textFill="WHITE" />
          </children>
       </VBox>
       <ImageView fitHeight="112.0" fitWidth="243.0" layoutX="235.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">

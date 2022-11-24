@@ -39,9 +39,9 @@ public class QuestoesSubjetivasBO {
 				QuestoesSubjetivasDTO quest = new QuestoesSubjetivasDTO();
 				quest.setCodigo(rs.getString("codigo"));
 				quest.setAssunto(rs.getString("assuntos"));
-				quest.setDificuldade(rs.getInt("dificuldade"));
+				quest.setDificuldade(rs.getString("dificuldade"));
 				quest.setEnunciado(rs.getString("enunciado"));
-				quest.setIdDisciplina(rs.getInt("fk_disciplina"));
+				quest.setDisciplina(rs.getString("disciplina"));
 				quest.setResposta(rs.getString("resposta"));
 				quest.setTipo(rs.getInt("tipo"));
 				//aluno.setId(rs.getInt("id"));
@@ -56,8 +56,8 @@ public class QuestoesSubjetivasBO {
 		}
 	}
 	
-	public boolean atualizar (QuestoesSubjetivas quest) {
-		
+	public boolean atualizar (QuestoesSubjetivasDTO dto) {
+		QuestoesSubjetivas quest = QuestoesSubjetivas.converter(dto);
 		ResultSet rs = dao.findBySpecifiedField(quest, "codigo");
 		try {
 			if(rs!=null && rs.next()) {

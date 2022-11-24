@@ -1,10 +1,23 @@
 package Controller;
 
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
 import View.Telas;
+import dto.QuestoesSubjetivasDTO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import model.service.QuestoesSubjetivasBO;
 
-public class TelaTipodeQuestaoController {
+public class TelaTipodeQuestaoController{
+		
 	@FXML
     void adicionarobjetiva(ActionEvent event) {
 		Telas.TelaCadastrarQuestaoObjetiva();
@@ -38,5 +51,10 @@ public class TelaTipodeQuestaoController {
     @FXML
     void voltar() {
     	Telas.TeladeQuestoes();
+    }
+    
+    @FXML
+    public void sair(ActionEvent event) {
+		Telas.TeladeLogin();
     }
 }

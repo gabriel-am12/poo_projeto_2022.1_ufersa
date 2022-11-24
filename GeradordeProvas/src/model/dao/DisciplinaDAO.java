@@ -29,7 +29,6 @@ public class DisciplinaDAO extends BaseDao<Disciplina>{
             PreparedStatement pst = getConnection().prepareStatement(sql);
             pst.setString(1, disciplina.getCodigo());
             pst.execute();
-
             return true;
         } catch (SQLException e) {
             e.printStackTrace();

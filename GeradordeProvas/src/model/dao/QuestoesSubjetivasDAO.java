@@ -4,21 +4,22 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import dto.UsuarioDTO;
 import model.entity.QuestoesSubjetivas;
 
 public class QuestoesSubjetivasDAO extends BaseDao<QuestoesSubjetivas>{
 
 	public boolean inserir (QuestoesSubjetivas quest) {
-		String sql = "INSERT INTO tb_questaosub (codigo,enunciado,tipo,assuntos,dificuldade,resposta,fk_disciplina) VALUES (?,?,?,?,?,?,?);";
+		String sql = "INSERT INTO tb_questaosub (codigo,enunciado,tipo,assuntos,dificuldade,resposta,disciplina) VALUES (?,?,?,?,?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, quest.getCodigo());
 			pst.setString(2, quest.getEnunciado());
 			pst.setInt(3, quest.getTipo());
 			pst.setString(4, quest.getAssunto());
-			pst.setInt(5, quest.getDificuldade());
+			pst.setString(5, quest.getDificuldade());
 			pst.setString(6, quest.getResposta());
-			pst.setInt(7, quest.getIdDisciplina());
+			pst.setString(7, quest.getDisciplina());
 			pst.execute();
 			return true;		
 		
@@ -44,16 +45,16 @@ public class QuestoesSubjetivasDAO extends BaseDao<QuestoesSubjetivas>{
 		
 	}
 	public boolean alterar(QuestoesSubjetivas quest) {
-		String sql = "UPDATE tb_questaosub SET codigo=?,enunciado=?,tipo=?,assuntos=?,dificuldade=?,resposta=?,fk_disciplina=? WHERE codigo=? ";
+		String sql = "UPDATE tb_questaosub SET codigo=?,enunciado=?,tipo=?,assuntos=?,dificuldade=?,resposta=?,disciplina=? WHERE codigo=? ";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, quest.getCodigo());
 			pst.setString(2, quest.getEnunciado());
 			pst.setInt(3, quest.getTipo());
 			pst.setString(4, quest.getAssunto());
-			pst.setInt(5, quest.getDificuldade());
+			pst.setString(5, quest.getDificuldade());
 			pst.setString(6, quest.getResposta());
-			pst.setInt(7, quest.getIdDisciplina());
+			pst.setString(7, quest.getDisciplina());
 			pst.executeUpdate();
 			return true;		
 		
@@ -75,9 +76,8 @@ public class QuestoesSubjetivasDAO extends BaseDao<QuestoesSubjetivas>{
 				QuestoesSubjetivas a = new QuestoesSubjetivas();
 				a.setAssunto(rs.getString("assuntos"));
 				a.setCodigo(rs.getString("codigo"));
-				a.setDificuldade(rs.getInt("dificuldade"));
-				//a.setDisciplina(rs.getObject("fk_disciplina"));
-				a.setIdDisciplina(rs.getInt("fk_disciplina"));
+				a.setDificuldade(rs.getString("dificuldade"));
+				a.setDisciplina(rs.getString("disciplina"));
 				a.setResposta(rs.getString("resposta"));
 				a.setTipo(rs.getInt("tipo"));
 				a.setEnunciado(rs.getString("enunciado"));
@@ -131,7 +131,10 @@ public class QuestoesSubjetivasDAO extends BaseDao<QuestoesSubjetivas>{
 				break;
 				
 			case "dificuldade":
-				pst.setInt(1, e.getDificuldade());
+				pst.setString(1, e.getDificuldade());
+				break;
+			case "disciplina":
+				pst.setString(1, e.getDisciplina());
 			
 			default: 
 				pst.setInt(1, e.getId());
@@ -181,5 +184,6 @@ public class QuestoesSubjetivasDAO extends BaseDao<QuestoesSubjetivas>{
 		}
 		
 	}
+	
 	
 }

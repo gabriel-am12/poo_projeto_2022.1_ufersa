@@ -8,9 +8,9 @@ public class QuestoesObjetivasDTO {
 	private String codigo;
 	private int tipo;
 	private String enunciado;
-	private Disciplina disciplina;
+	private String disciplina;
 	private String assunto;
-	private int dificuldade;
+	private String dificuldade;
 	private String opcao01;
 	private String opcao02;
 	private String opcao03;
@@ -42,10 +42,10 @@ public class QuestoesObjetivasDTO {
 	public void setEnunciado(String enunciado) {
 		this.enunciado = enunciado;
 	}
-	public Disciplina getDisciplina() {
+	public String getDisciplina() {
 		return disciplina;
 	}
-	public void setDisciplina(Disciplina disciplina) {
+	public void setDisciplina(String disciplina) {
 		this.disciplina = disciplina;
 	}
 	public String getAssunto() {
@@ -54,10 +54,10 @@ public class QuestoesObjetivasDTO {
 	public void setAssunto(String assunto) {
 		this.assunto = assunto;
 	}
-	public int getDificuldade() {
+	public String getDificuldade() {
 		return dificuldade;
 	}
-	public void setDificuldade(int dificuldade) {
+	public void setDificuldade(String dificuldade) {
 		this.dificuldade = dificuldade;
 	}
 	public String getOpcao01() {

@@ -5,9 +5,9 @@ import dto.DisciplinaDTO;
 
 public class Disciplina {
 	private int id;
-  private String codigo;
-  private String nome;
-  private String assunto;
+	private String codigo;
+	private String nome;
+	private String assunto;
 
   ArrayList<Disciplina> listaDeDisciplinas = new ArrayList<Disciplina>();
 
@@ -47,6 +47,7 @@ public class Disciplina {
 	  	disciplina.setCodigo(disciplinadto.getCodigo());
 	  	disciplina.setAssunto(disciplinadto.getAssuntos());
 	  	disciplina.setNome(disciplinadto.getNome());
+	  	disciplina.setId(disciplinadto.getId());
 	  return disciplina;
   }
 

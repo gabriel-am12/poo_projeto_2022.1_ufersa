@@ -28,6 +28,7 @@ public class Telas extends Application{
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.setTitle("Tela Dashboard");
+			stage.setResizable(false);
 			stage.show();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -40,22 +41,10 @@ public class Telas extends Application{
 			Scene scene = new Scene (root);
 			stage.setScene(scene);
 			stage.setTitle("Tela de Cadastrar Disciplina");
+			stage.setResizable(false);
 			stage.show();
 		}
 		catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public static void TeladeEditarDisciplina() {
-		try {
-			Parent root = FXMLLoader.load(Telas.class.getResource("VE/TeladeEditarDisciplina.fxml"));
-			Scene scene = new Scene(root);
-			stage.setScene(scene);
-			stage.setTitle("Tela de Editar Disciplina");
-			stage.show();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -66,6 +55,7 @@ public class Telas extends Application{
 			Scene scene = new Scene (root);
 			stage.setScene(scene);
 			stage.setTitle("Tela de Disciplina");
+			stage.setResizable(false);
 			stage.show();
 		}
 		catch(Exception e) {
@@ -79,6 +69,7 @@ public class Telas extends Application{
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.setTitle("Tela de Login");
+			stage.setResizable(false);
 			stage.show();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -91,6 +82,7 @@ public class Telas extends Application{
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.setTitle("Tela de Cadastro");
+			stage.setResizable(false);
 			stage.show();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -102,7 +94,8 @@ public class Telas extends Application{
 			Parent root = FXMLLoader.load(Telas.class.getResource("VE/TeladeQuestoes.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			stage.setTitle("Tela de Quest�es");
+			stage.setTitle("Tela de Questoes");
+			stage.setResizable(false);
 			stage.show();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -115,6 +108,7 @@ public class Telas extends Application{
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.setTitle("Selecione o tipo");
+			stage.setResizable(false);
 			stage.show();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -133,24 +127,25 @@ public class Telas extends Application{
 		}
 	}
 	
-	
 	public static void TelaCadastrarQuestaoSubjetiva() {
 		try {
 			Parent root = FXMLLoader.load(Telas.class.getResource("VE/TelaCadastrarQuestaoSubjetiva.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			stage.setTitle("Cadastrando quest�o subjetiva");
+			stage.setTitle("Cadastrando questao subjetiva");
+			stage.setResizable(false);
 			stage.show();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
 	public static void TelaEditarQuestaoSubjetiva() {
 		try {
 			Parent root = FXMLLoader.load(Telas.class.getResource("VE/TeladeEditarQuestaoSubjetiva.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			stage.setTitle("Editando quest�o subjetiva");
+			stage.setTitle("Editando questao subjetiva");
 			stage.show();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -162,7 +157,8 @@ public class Telas extends Application{
 			Parent root = FXMLLoader.load(Telas.class.getResource("VE/TelaCadastrarQuestaoObjetiva.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			stage.setTitle("Cadastrando quest�o Objetiva");
+			stage.setTitle("Cadastrando questao subjetiva");
+			stage.setResizable(false);
 			stage.show();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -174,7 +170,7 @@ public class Telas extends Application{
 			Parent root = FXMLLoader.load(Telas.class.getResource("VE/TeladeEditarQuestaoObjetiva.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			stage.setTitle("Editando quest�o objetiva");
+			stage.setTitle("Editando questao objetiva");
 			stage.show();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -187,6 +183,7 @@ public class Telas extends Application{
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.setTitle("Tela esqueci da senha");
+			stage.setResizable(false);
 			stage.show();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -200,6 +197,35 @@ public class Telas extends Application{
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.setTitle("Provas");
+			stage.setResizable(false);
+			stage.show();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void TeladeEditarProva() {
+		try {
+			Parent root = FXMLLoader.load(Telas.class.getResource("VE/TeladeEditarProva.fxml"));
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setTitle("Editar Prova");
+			stage.setResizable(false);
+			stage.show();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void TeladeEditarDisciplina() {
+		try {
+			Parent root = FXMLLoader.load(Telas.class.getResource("VE/TeladeEditarDisciplina.fxml"));
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setTitle("Tela de Editar Disciplina");
+			stage.setResizable(false);
 			stage.show();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -209,7 +235,7 @@ public class Telas extends Application{
 	
 	public static void TeladeCadastrarProva() {
 		try {
-			Parent root = FXMLLoader.load(Telas.class.getResource("VE/TeladedeCadastrarProva.fxml"));
+			Parent root = FXMLLoader.load(Telas.class.getResource("VE/TeladeCadastrarProva.fxml"));
 			Scene scene = new Scene (root);
 			stage.setScene(scene);
 			stage.setTitle("Tela de Cadastrar Prova");
@@ -219,7 +245,6 @@ public class Telas extends Application{
 			e.printStackTrace();
 		}
 	}
-	
 	
 	public static void main (String args[]) {
 		launch(); 

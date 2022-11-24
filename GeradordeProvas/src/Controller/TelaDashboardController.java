@@ -1,6 +1,10 @@
 package Controller;
 
+import java.awt.Label;
+
 import View.Telas;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 
 public class TelaDashboardController {
 	
@@ -20,4 +24,8 @@ public class TelaDashboardController {
 		Telas.TeladeProvas();
 	}
 	
+	@FXML
+    public void sair(ActionEvent event) {
+		Telas.TeladeLogin();
+    }
 }

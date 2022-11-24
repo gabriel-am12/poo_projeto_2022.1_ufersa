@@ -12,8 +12,8 @@ public class QuestoesObjetivas extends Questoes {
 	private String opcao05;
 	private String resposta;
 
-	public QuestoesObjetivas(String codigo, int tipo, String enunciado, Disciplina disciplina, String assunto,
-			int dificuldade) {
+	public QuestoesObjetivas(String codigo, int tipo, String enunciado, String disciplina, String assunto,
+			String dificuldade) {
 		super(codigo, tipo, enunciado, disciplina, assunto, dificuldade);
 		// TODO Auto-generated constructor stub
 	}

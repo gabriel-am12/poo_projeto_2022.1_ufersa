@@ -9,21 +9,21 @@ import model.entity.QuestoesSubjetivas;
 
 public class QuestoesObjetivasDAO extends BaseDao<QuestoesObjetivas>{
 	public boolean inserir (QuestoesObjetivas quest) {
-		String sql = "INSERT INTO tb_questaoobj (codigo,enunciado,tipo,assuntos,dificuldade,resposta,fk_disciplina,opcao01,opcao02,opcao03,opcao04,opcao05) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
+		String sql = "INSERT INTO tb_questaoobj (codigo,enunciado,assuntos,dificuldade,resposta,disciplina,opcao01,opcao02,opcao03,opcao04,opcao05) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, quest.getCodigo());
 			pst.setString(2, quest.getEnunciado());
-			pst.setInt(3, quest.getTipo());
-			pst.setString(4, quest.getAssunto());
-			pst.setInt(5, quest.getDificuldade());
-			pst.setString(6, quest.getResposta());
-			pst.setInt(7, quest.getIdDisciplina());
-			pst.setString(8, quest.getOpcao01());
-			pst.setString(9, quest.getOpcao02());
-			pst.setString(10, quest.getOpcao03());
-			pst.setString(11, quest.getOpcao04());
-			pst.setString(12, quest.getOpcao05());
+			//pst.setInt(3, quest.getTipo());
+			pst.setString(3, quest.getAssunto());
+			pst.setString(4, quest.getDificuldade());
+			pst.setString(5, quest.getResposta());
+			pst.setString(6, quest.getDisciplina());
+			pst.setString(7, quest.getOpcao01());
+			pst.setString(8, quest.getOpcao02());
+			pst.setString(9, quest.getOpcao03());
+			pst.setString(10, quest.getOpcao04());
+			pst.setString(11, quest.getOpcao05());
 			pst.execute();
 			return true;		
 		
@@ -48,22 +48,24 @@ public class QuestoesObjetivasDAO extends BaseDao<QuestoesObjetivas>{
 		}
 		
 	}
+	
+	@Override
 	public boolean alterar(QuestoesObjetivas quest) {
-		String sql = "UPDATE tb_questaoobj SET codigo=?,enunciado=?,tipo=?,assuntos=?,dificuldade=?,resposta=?,fk_disciplina=?,opcao01=?,opcao02=?,opcao03=?,opcao04=?,opcao05=? WHERE codigo=? ";
+		String sql = "UPDATE tb_questaoobj SET codigo=?,enunciado=?,assuntos=?,dificuldade=?,resposta=?,disciplina=?,opcao01=?,opcao02=?,opcao03=?,opcao04=?,opcao05=? WHERE id=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, quest.getCodigo());
 			pst.setString(2, quest.getEnunciado());
-			pst.setInt(3, quest.getTipo());
-			pst.setString(4, quest.getAssunto());
-			pst.setInt(5, quest.getDificuldade());
-			pst.setString(6, quest.getResposta());
-			pst.setInt(7, quest.getIdDisciplina());
-			pst.setString(8, quest.getOpcao01());
-			pst.setString(9, quest.getOpcao02());
-			pst.setString(10, quest.getOpcao03());
-			pst.setString(11, quest.getOpcao04());
-			pst.setString(12, quest.getOpcao05());
+			pst.setString(3, quest.getAssunto());
+			pst.setString(4, quest.getDificuldade());
+			pst.setString(5, quest.getResposta());
+			pst.setString(6, quest.getDisciplina());
+			pst.setString(7, quest.getOpcao01());
+			pst.setString(8, quest.getOpcao02());
+			pst.setString(9, quest.getOpcao03());
+			pst.setString(10, quest.getOpcao04());
+			pst.setString(11, quest.getOpcao05());
+			pst.setInt(12, quest.getId());
 			pst.executeUpdate();
 			return true;		
 		
@@ -85,9 +87,8 @@ public class QuestoesObjetivasDAO extends BaseDao<QuestoesObjetivas>{
 				QuestoesObjetivas a = new QuestoesObjetivas();
 				a.setAssunto(rs.getString("assuntos"));
 				a.setCodigo(rs.getString("codigo"));
-				a.setDificuldade(rs.getInt("dificuldade"));
-				//a.setDisciplina(rs.getObject("fk_disciplina"));
-				a.setIdDisciplina(rs.getInt("fk_disciplina"));
+				a.setDificuldade(rs.getString("dificuldade"));
+				a.setDisciplina(rs.getString("disciplina"));
 				a.setResposta(rs.getString("resposta"));
 				a.setTipo(rs.getInt("tipo"));
 				a.setEnunciado(rs.getString("enunciado"));
@@ -146,17 +147,26 @@ public class QuestoesObjetivasDAO extends BaseDao<QuestoesObjetivas>{
 				break;
 				
 			case "dificuldade":
-				pst.setInt(1, e.getDificuldade());
+				pst.setString(1, e.getDificuldade());
+				break;
 			case "opcao01":
 				pst.setString(1, e.getOpcao01());
+				break;
 			case "opcao02":
 				pst.setString(1, e.getOpcao02());
+				break;
 			case "opcao03":
 				pst.setString(1, e.getOpcao03());
+				break;
 			case "opcao04":
 				pst.setString(1, e.getOpcao04());
+				break;
 			case "opcao05":
 				pst.setString(1, e.getOpcao05());
+				break;
+				
+			case "disciplina":
+				pst.setString(1, e.getDisciplina());
 			default: 
 				pst.setInt(1, e.getId());
 			}

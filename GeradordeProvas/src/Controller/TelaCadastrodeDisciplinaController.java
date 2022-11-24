@@ -77,4 +77,9 @@ public class TelaCadastrodeDisciplinaController {
 	public void voltar() {
 		Telas.TeladeDisciplina();
 	}
+	
+	@FXML
+    public void sair(ActionEvent event) {
+		Telas.TeladeLogin();
+    }
 }

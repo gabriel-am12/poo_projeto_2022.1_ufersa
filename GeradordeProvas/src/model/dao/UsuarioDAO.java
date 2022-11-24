@@ -8,9 +8,43 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dto.UsuarioDTO;
+import model.entity.Disciplina;
 import model.entity.Usuario;
 
 public class UsuarioDAO extends BaseDao<Usuario>{
+	 @Override
+		public ResultSet findBySpecifiedField(Usuario usuario, String field) {
+			String sql = "SELECT * FROM tb_usuario WHERE " + field +"=? ;";
+			try {
+				PreparedStatement pst = getConnection().prepareStatement(sql);
+				switch (field) {
+				case "email":
+					pst.setString(1,usuario.getEmail());
+					break;
+					
+				case "nome":
+					pst.setString(1,usuario.getNome());
+					break;
+					
+				case "login":
+					pst.setString(1,usuario.getLogin());
+					break;
+				case "senha":
+					pst.setString(1, usuario.getSenha());
+					
+				default: 
+					pst.setInt(1,usuario.getId_usuario());
+				}
+				
+				ResultSet rs = pst.executeQuery();
+				return rs;
+			
+			} catch (SQLException ex) {
+				// TODO Auto-generated catch block
+				ex.printStackTrace();
+				return null;
+			}
+		}
 
     public Usuario findById(Usuario usuario) {
         String sql = "SELECT * FROM tb_usuario WHERE id=? ;";

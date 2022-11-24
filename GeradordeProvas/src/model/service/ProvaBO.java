@@ -12,9 +12,10 @@ import model.entity.Disciplina;
 import model.entity.Prova;
 import model.entity.Questoes;
 
-public class ProvaBO extends BaseBO<Prova> implements BaseInterBO<Prova>{
+public class ProvaBO /*extends BaseBO<Prova> implements BaseInterBO<Prova>*/{
 	BaseInterDAO<Prova> dao = new ProvaDao();
-	public boolean adicionar(Prova prova) {
+	public boolean adicionar(ProvaDTO provaa) {
+		Prova prova = Prova.converter(provaa);
 		ResultSet rs = dao.findBySpecifiedField(prova, "id");
 		try {
 			if(rs==null || !(rs.next()) ) {
@@ -30,19 +31,21 @@ public class ProvaBO extends BaseBO<Prova> implements BaseInterBO<Prova>{
 		}	
 		
 	}
-	public List<Prova> listar(){
-		List<Prova> provas = new ArrayList<Prova>();
+	
+	public List<ProvaDTO> listar(){
+		List<ProvaDTO> provas = new ArrayList<ProvaDTO>();
 		ResultSet rs = dao.findAll();
 		try {
 			while(rs.next()) {
-				Prova prova = new Prova();
+				//até agora ta correto
+				ProvaDTO prova = new ProvaDTO();
 				prova.setId(rs.getInt("id"));
-				prova.setNivelUm(rs.getInt("nivelUm"));
-				prova.setNivelUm(rs.getInt("nivelDois"));
-				prova.setNivelUm(rs.getInt("nivelTres"));
-				//prova.setDisciplina(rs.getString("disciplina"));
-				prova.setData(rs.getString("Data"));
-				
+				prova.setNivelUm(rs.getString("nivelUm"));
+				prova.setNivelDois(rs.getString("nivelDois"));
+				prova.setNivelTres(rs.getString("nivelTres"));
+				prova.setDisciplina(rs.getString("disciplina"));
+				prova.setSemestre(rs.getString("semestre"));
+				prova.setCodigo(rs.getString("codigo"));
 				provas.add(prova);
 			}
 			return provas;
@@ -70,7 +73,7 @@ public class ProvaBO extends BaseBO<Prova> implements BaseInterBO<Prova>{
 		}	
 	}
 	public boolean apagar (Prova provadto) {
-		ResultSet rs = dao.findBySpecifiedField(provadto, "id");
+		ResultSet rs = dao.findBySpecifiedField(provadto, "codigo");
 		try {
 			if(rs!=null && rs.next() ) {
 				if(dao.deletar(provadto) == true)

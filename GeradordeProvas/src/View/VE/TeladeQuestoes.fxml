@@ -4,60 +4,54 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TeladeQuestoesController">
+<Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TeladeQuestoesController">
    <children>
-      <Pane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0f928c;">
+      <Pane prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #0f928c;">
          <children>
-            <Pane layoutX="148.0" layoutY="14.0" prefHeight="372.0" prefWidth="431.0" style="-fx-background-color: #d9d9d9;">
+            <Pane layoutX="144.0" layoutY="14.0" prefHeight="473.0" prefWidth="742.0" style="-fx-background-color: #d9d9d9;">
                <children>
-                  <Label layoutX="28.0" layoutY="23.0" style="-fx-background-color: #b3d9b0; -fx-padding: 5px;" text="Pesquisar" />
-                  <TextField fx:id="EnunciadoTexto" layoutX="14.0" layoutY="57.0" prefHeight="25.0" prefWidth="82.0" />
-                  <Button fx:id="CadastrarQuestao11" layoutX="282.0" layoutY="333.0" mnemonicParsing="false" style="-fx-background-color: #b3d9b0;" text="Remover Questão✚" />
-                  <Label layoutX="203.0" layoutY="23.0" style="-fx-background-color: #b3d9b0; -fx-padding: 5px;" text="Questões Objetivas" />
-                  <TableView layoutX="109.0" layoutY="57.0" prefHeight="112.0" prefWidth="300.0">
+                  <Button layoutX="451.0" layoutY="417.0" mnemonicParsing="false" onAction="#RemoverQuestao" style="-fx-background-color: #b3d9b0;" text="Remover Questão✖" />
+                  <Label layoutX="314.0" layoutY="22.0" style="-fx-background-color: #b3d9b0; -fx-padding: 5px;" text="Questões Objetivas" />
+                  <TableView fx:id="tabelaQuestoesObjetivas" layoutX="42.0" layoutY="57.0" onMouseClicked="#selecionaritemtabelaObjetivas" prefHeight="154.0" prefWidth="657.0">
                     <columns>
-                      <TableColumn prefWidth="47.0" text="Codigo" />
-                      <TableColumn prefWidth="62.0" text="Disciplina" />
-                        <TableColumn prefWidth="74.0" text="Dificuldade" />
-                        <TableColumn prefWidth="117.0" text="Enunciado" />
+                      <TableColumn fx:id="columnEnunciadoObjetivas" prefWidth="230.0" text="Enunciado" />
+                      <TableColumn fx:id="columnDisciplinaObjetivas" prefWidth="85.0" text="Disciplina" />
+                        <TableColumn fx:id="columnDificuldadeObjetivas" text="Dificuldade" />
+                        <TableColumn fx:id="columnResposta" prefWidth="261.0" text="Resposta" />
                     </columns>
                   </TableView>
-                  <Button fx:id="CadastrarQuestao12" layoutX="17.0" layoutY="144.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: #b3d9b0;" text="Visualizar" />
-                  <Label layoutX="201.0" layoutY="173.0" style="-fx-background-color: #b3d9b0; -fx-padding: 5px;" text="Questões Subjetivas" />
-                  <TableView layoutX="109.0" layoutY="213.0" prefHeight="104.0" prefWidth="300.0">
+                  <Label layoutX="312.0" layoutY="223.0" style="-fx-background-color: #b3d9b0; -fx-padding: 5px;" text="Questões Subjetivas" />
+                  <TableView fx:id="tabelaQuestoesSubjetivas" layoutX="42.0" layoutY="258.0" onMouseClicked="#selecionaritemtabelaSubjetivas" prefHeight="145.0" prefWidth="657.0">
                      <columns>
-                        <TableColumn prefWidth="48.0" text="Codigo" />
-                        <TableColumn prefWidth="63.0" text="Disciplina" />
-                        <TableColumn prefWidth="73.0" text="Dificuldade" />
-                        <TableColumn prefWidth="115.0" text="Enunciado" />
+                        <TableColumn fx:id="columnEnunciadoSubjetivas" prefWidth="237.0" text="Enunciado" />
+                        <TableColumn fx:id="columnDisciplinaSubjetivas" prefWidth="96.0" text="Disciplina" />
+                        <TableColumn fx:id="columnDificuldadeSubjetivas" prefWidth="75.0" text="Dificuldade" />
+                        <TableColumn fx:id="columnRespostaSubjetiva" prefWidth="248.0" text="Resposta" />
                      </columns>
                   </TableView>
-                  <Button fx:id="CadastrarQuestao121" layoutX="17.0" layoutY="292.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: #b3d9b0;" text="Visualizar" />
-                  <Label layoutX="28.0" layoutY="180.0" style="-fx-background-color: #b3d9b0; -fx-padding: 5px;" text="Pesquisar" />
-                  <TextField fx:id="EnunciadoTexto1" layoutX="17.0" layoutY="213.0" prefHeight="10.0" prefWidth="82.0" />
+                  <Button fx:id="CadastrarQuestao" layoutX="184.0" layoutY="417.0" mnemonicParsing="false" onAction="#adicionar" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: #b3d9b0;" text="Cadastrar Questão✚" />
+                  <Button fx:id="EditarQuestao" layoutX="331.0" layoutY="417.0" mnemonicParsing="false" onAction="#editar" style="-fx-background-color: #b3d9b0;" text="Editar Questão✎" />
                </children>
             </Pane>
-            <VBox prefHeight="400.0" prefWidth="110.0" style="-fx-background-color: #484848;">
+            <VBox prefHeight="500.0" prefWidth="110.0" style="-fx-background-color: #484848;">
                <children>
                   <Button fx:id="BotãoDisciplina" mnemonicParsing="false" onAction="#disciplinas" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Disciplinas" textFill="WHITE" />
                   <Button fx:id="BotaoQuestoes" mnemonicParsing="false" onAction="#questoes" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Questões" textFill="WHITE" />
                   <Button fx:id="BotaoInicio" mnemonicParsing="false" onAction="#inicio" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Início" textFill="WHITE" />
                   <Button fx:id="BotaoProvas" mnemonicParsing="false" onAction="#provas" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Provas" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#sair" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Sair" textFill="WHITE" />
                </children>
             </VBox>
-            <ImageView fitHeight="112.0" fitWidth="243.0" layoutX="235.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="112.0" fitWidth="161.0" layoutX="317.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../testeScene%20builder/a09f070f56efaf214157421b3d39eed4.png" />
                </image>
             </ImageView>
-            <Button fx:id="CadastrarQuestao" layoutX="170.0" layoutY="348.0" mnemonicParsing="false" onAction="#adicionar" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: #b3d9b0;" text="Cadastrar Questão✚" />
-            <Button fx:id="CadastrarQuestao1" layoutX="310.0" layoutY="348.0" mnemonicParsing="false" style="-fx-background-color: #b3d9b0;" text="Editar Questão✚" />
          </children>
       </Pane>
    </children>

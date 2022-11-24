@@ -15,14 +15,19 @@ public class CadastroUsuarioController {
 	@FXML private TextField email;
 		  private UsuarioBO bo = new UsuarioBO();
 	
-	public void cadastrar() {
+	public void cadastrar() throws Exception {
 		UsuarioDTO dto = new UsuarioDTO();
+		if(senha.getText().length() < 1) {
+			throw new Exception();
+		}
+		else {
 		dto.setLogin(login.getText());
 		dto.setNome(nome.getText());
 		dto.setEmail(email.getText());
 		dto.setSenha(senha.getText());
 		bo.adicionar(dto);
 		Telas.TeladeLogin();
+		}
 	}
 	
 	public void voltar() {

@@ -14,20 +14,20 @@
    <children>
       <Pane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0f928c;">
          <children>
-            <Pane layoutX="148.0" layoutY="14.0" prefHeight="387.0" prefWidth="432.0" style="-fx-background-color: #d9d9d9;">
+            <Pane layoutX="148.0" layoutY="14.0" prefHeight="379.0" prefWidth="425.0" style="-fx-background-color: #d9d9d9;">
                <children>
-                  <TextField layoutX="81.0" layoutY="41.0" prefHeight="25.0" prefWidth="116.0" />
+                  <TextField fx:id="codigo" layoutX="81.0" layoutY="41.0" prefHeight="25.0" prefWidth="116.0" />
                   <Label layoutX="23.0" layoutY="45.0" prefHeight="17.0" prefWidth="49.0" style="-fx-background-color: #b3d9b0;" text="Codigo:" />
                   <Label layoutX="23.0" layoutY="73.0" prefHeight="17.0" prefWidth="49.0" style="-fx-background-color: #b3d9b0;" text="Assunto:" />
-                  <TextField layoutX="81.0" layoutY="69.0" prefHeight="25.0" prefWidth="116.0" />
+                  <TextField fx:id="assunto" layoutX="81.0" layoutY="69.0" prefHeight="25.0" prefWidth="116.0" />
                   <Label layoutX="220.0" layoutY="45.0" prefHeight="17.0" prefWidth="60.0" style="-fx-background-color: #b3d9b0;" text="Disciplina:" />
                   <Label layoutX="217.0" layoutY="73.0" prefHeight="17.0" prefWidth="67.0" style="-fx-background-color: #b3d9b0;" text="Dificuldade:" />
-                  <ComboBox fx:id="combodisciplina" layoutX="292.0" layoutY="41.0" onAction="#comboboxdisciplina" onMouseClicked="#clicado" prefHeight="25.0" prefWidth="125.0" promptText="Selecione" />
-                  <ComboBox fx:id="cbxdificuldade" layoutX="292.0" layoutY="69.0" prefHeight="25.0" prefWidth="125.0" promptText="Selecione" />
+                  <ComboBox fx:id="combodisciplina" layoutX="292.0" layoutY="41.0" prefHeight="25.0" prefWidth="125.0" promptText="Selecione" />
+                  <ComboBox fx:id="combodificuldade" layoutX="292.0" layoutY="69.0" prefHeight="25.0" prefWidth="125.0" promptText="Selecione" />
                   <Label layoutX="23.0" layoutY="94.0" prefHeight="17.0" prefWidth="60.0" style="-fx-background-color: #b3d9b0;" text="Enunciado:" />
-                  <TextField layoutX="18.0" layoutY="117.0" prefHeight="102.0" prefWidth="395.0" />
+                  <TextField fx:id="enunciado" layoutX="18.0" layoutY="117.0" prefHeight="102.0" prefWidth="395.0" />
                   <Label layoutX="23.0" layoutY="225.0" prefHeight="17.0" prefWidth="60.0" style="-fx-background-color: #b3d9b0;" text="Resposta:" />
-                  <TextField layoutX="23.0" layoutY="251.0" prefHeight="85.0" prefWidth="395.0" />
+                  <TextField fx:id="resposta" layoutX="23.0" layoutY="251.0" prefHeight="85.0" prefWidth="395.0" />
                   <Label layoutX="127.0" layoutY="2.0" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: #b3d9b0;" text="Adicionar Questão Subjetiva">
                      <font>
                         <Font size="16.0" />
@@ -41,6 +41,7 @@
                   <Button fx:id="BotaoQuestoes" mnemonicParsing="false" onAction="#questoes" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Questões" textFill="WHITE" />
                   <Button fx:id="BotaoInicio" mnemonicParsing="false" onAction="#inicio" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Início" textFill="WHITE" />
                   <Button fx:id="BotaoProvas" mnemonicParsing="false" onAction="#provas" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Provas" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#sair" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #484848; -fx-background-radius: 0; -fx-border-color: #FFF;" text="Sair" textFill="WHITE" />
                </children>
             </VBox>
             <ImageView fitHeight="112.0" fitWidth="243.0" layoutX="235.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
@@ -48,8 +49,8 @@
                   <Image url="@../testeScene%20builder/a09f070f56efaf214157421b3d39eed4.png" />
                </image>
             </ImageView>
-            <Button layoutX="281.0" layoutY="370.0" mnemonicParsing="false" onAction="#voltar" prefHeight="27.0" prefWidth="76.0" style="-fx-background-color: #b3d9b0;" text="Voltar" />
-            <Button layoutX="364.0" layoutY="370.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="27.0" prefWidth="76.0" style="-fx-background-color: #b3d9b0;" text="Cadastrar" />
+            <Button layoutX="281.0" layoutY="357.0" mnemonicParsing="false" onAction="#voltar" prefHeight="27.0" prefWidth="76.0" style="-fx-background-color: #b3d9b0;" text="Voltar" />
+            <Button layoutX="364.0" layoutY="357.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="27.0" prefWidth="76.0" style="-fx-background-color: #b3d9b0;" text="Cadastrar" />
          </children>
       </Pane>
    </children>

@@ -1,6 +1,7 @@
 package dto;
 
 public class DisciplinaDTO {
+		private int id;
 	    private String codigo;
 	    private String nome;
 	    private String assuntos;
@@ -31,6 +32,14 @@ public class DisciplinaDTO {
 		
 		public String toString() {
 			return nome;
+		}
+
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
 		}
 	    
 }
